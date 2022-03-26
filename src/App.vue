@@ -15,10 +15,7 @@
 
   html,
   body {
-    height: 100%;
-  }
-
-  body {
+    /* height: 100%; */
     margin: 0px;
     background: linear-gradient(0deg, #171C2D, #254252) no-repeat;
   }
