@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto+Slab:wght@600&display=swap');
 
+@keyframes ani {
+  0% {
+    transform: translateX(-150%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .conteiner {
   margin-top: 100px;
   width: 100%;
@@ -10,14 +19,16 @@
     height: 675px;
   }
   .collection-align {
+    transform: translateX(-150%);
+    animation: ani 1s forwards;
     color: white;
     font-size: 20px;
     float: left;
     display: flex;
-    margin: 145px 200px -583px 200px;
+    margin: 7% 15%;
     z-index: 2;
+    //absolute - desabled animation
     position: absolute;
-    cursor: pointer;
     .game-banner {
       height: 393px;
     }
@@ -26,6 +37,38 @@
     margin: 20px 40px;
     text-align: left;
     font-size: 125%;
+    .excerpt {
+      &::before {
+        content: '"';
+        position: absolute;
+        color: #978776;
+        font-size: 200%;
+        top: 0;
+        left: 0;
+      }
+      line-height: 1.5;
+      font-family: quatro-slab, serif;
+      position: relative;
+      display: block;
+      font-style: italic;
+      padding: 12px 1.618em 12px 30px;
+      color: #978776;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    hr {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 5px solid rgba(0, 0, 0, 0.1);
+      margin: 24px 0;
+      padding: 0;
+      &:nth-child(1) {
+        border-color: rgb(207, 161, 23) !important;
+      }
+      &:nth-child(2) {
+        border-color: rgb(207, 161, 23) !important;
+      }
+    }
     .title {
       font-family: 'Roboto Slab', serif;
       font-size: 40px;

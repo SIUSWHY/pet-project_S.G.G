@@ -1,6 +1,6 @@
 <template>
   <div class="conteiner">
-    <div>
+    <router-link to="/bastion">
       <div class="collection-align">
         <img
           class="game-banner"
@@ -16,6 +16,11 @@
             must create and fight for civilization`s last refuge as a mysterious
             narrator marks their every move.
           </p>
+          <hr style="border-color: rgb(207, 161, 23)" />
+          <span class="excerpt">
+            The soundtrack is phenomenal, the world is breathtaking, and the
+            narration is a brilliant new idea for gaming.
+          </span>
         </div>
       </div>
       <img
@@ -23,8 +28,8 @@
         src="../../../../assets/GamePosters/BackgraundImage/bastion-bg.png"
         alt="pic"
       />
-    </div>
-    <div>
+    </router-link>
+    <router-link to="/transistor">
       <div class="collection-align">
         <img
           class="game-banner"
@@ -39,6 +44,10 @@
             extraordinary weapon of unknown origin as you fight through a
             stunning futuristic city.
           </p>
+          <hr style="border-color: #3a7664" />
+          <span class="excerpt">
+            Transistor offers an escape into a strange and enchanting world.
+          </span>
         </div>
       </div>
       <img
@@ -46,8 +55,8 @@
         src="../../../../assets/GamePosters/BackgraundImage/transistor-bg.jpg"
         alt="pic"
       />
-    </div>
-    <div>
+    </router-link>
+    <router-link to="/pyre">
       <div class="collection-align">
         <img
           class="game-banner"
@@ -62,6 +71,10 @@
             through an ancient competition spread across a vast, mystical
             purgatory.
           </p>
+          <hr style="border-color: #276abc" />
+          <span class="excerpt">
+            Pyre enchants your eyes and ears with beauty at every turn.
+          </span>
         </div>
       </div>
       <img
@@ -69,8 +82,8 @@
         src="../../../../assets/GamePosters/BackgraundImage/pyre-bg.jpg"
         alt="pic"
       />
-    </div>
-    <div>
+    </router-link>
+    <router-link to="/hades">
       <div class="collection-align">
         <img
           class="game-banner"
@@ -85,6 +98,12 @@
             dead as you hack and slash your way out of the Underworld of Greek
             myth.
           </p>
+          <hr style="border-color: #8c120a" />
+          <span class="excerpt">
+            Hades is a one-of-a-kind rogue-lite that does a brilliant job of
+            marrying its fast-paced action with its persistent, progressing
+            story through a vividly reimagined Greek mythological underworld.
+          </span>
         </div>
       </div>
       <img
@@ -92,7 +111,7 @@
         src="../../../../assets/GamePosters/BackgraundImage/hades-bg.png"
         alt="pic"
       />
-    </div>
+    </router-link>
   </div>
 </template>
 
