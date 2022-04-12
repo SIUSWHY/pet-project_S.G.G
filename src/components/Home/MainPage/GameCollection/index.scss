@@ -3,13 +3,19 @@
 .conteiner {
   margin-top: 100px;
   background-color: black;
-  width: 1815px;
+  width: 100%;
+  .bg-pic {
+    width: 100%;
+    opacity: 0.15;
+    z-index: 2;
+  }
   .collection-align {
     color: white;
     font-size: 20px;
     float: left;
     display: flex;
     margin: 80px;
+    z-index: 1;
   }
   .ditails-align {
     margin: 20px 40px;
