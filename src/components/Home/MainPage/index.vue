@@ -3,8 +3,7 @@
     <div class="header">
       <div class="header-title">SUPERGIANT GAMES</div>
     </div>
-    <img class="header-pic" src="../../../assets/main-page.jpg" alt="pic">
-    <!-- <div class="header-pic"></div> -->
+    <img class="header-pic" src="../../../assets/main-page.jpg" alt="pic" />
     <GameCollection />
   </div>
 </template>

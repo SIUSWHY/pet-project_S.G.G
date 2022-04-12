@@ -2,23 +2,30 @@
 
 .conteiner {
   margin-top: 100px;
-  background-color: black;
   width: 100%;
   .bg-pic {
     width: 100%;
     opacity: 0.15;
-    z-index: 2;
+    z-index: 1;
+    height: 675px;
   }
   .collection-align {
     color: white;
     font-size: 20px;
     float: left;
     display: flex;
-    margin: 80px;
-    z-index: 1;
+    margin: 145px 200px -583px 200px;
+    z-index: 2;
+    position: absolute;
+    cursor: pointer;
+    .game-banner {
+      height: 393px;
+    }
   }
   .ditails-align {
     margin: 20px 40px;
+    text-align: left;
+    font-size: 125%;
     .title {
       font-family: 'Roboto Slab', serif;
       font-size: 40px;
