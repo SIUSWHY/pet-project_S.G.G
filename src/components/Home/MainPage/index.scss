@@ -14,7 +14,6 @@
   flex-direction: column;
   align-items: center;
   padding-top: 400px;
-
   .header {
     transform: translateY(-150%);
     animation: ani 1s forwards;
@@ -25,10 +24,8 @@
       font-family: 'Permanent Marker', cursive;
     }
   }
-
   .header-pic {
-    // height: 735px;
-    width: 1815px;
+    width: 100%;
     z-index: 1;
     opacity: 0.4;
     margin-top: -640px;

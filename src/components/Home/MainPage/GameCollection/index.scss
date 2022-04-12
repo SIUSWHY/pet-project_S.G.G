@@ -2,20 +2,23 @@
 
 .conteiner {
   margin-top: 100px;
-  background-color: black;
-  width: 1815px;
-  .collection-align {
-    color: white;
-    font-size: 20px;
-    float: left;
-    display: flex;
-    margin: 80px;
-  }
-  .ditails-align {
-    margin: 20px 40px;
-    .title {
-      font-family: 'Roboto Slab', serif;
-      font-size: 40px;
+  width: 100%;
+  .bg-element {
+    // height: 400px;
+    // background-image: url(../../../../assets/bastion-bg.jpg);
+    .collection-align {
+      color: white;
+      font-size: 20px;
+      float: left;
+      display: flex;
+      margin: 80px;
+    }
+    .ditails-align {
+      margin: 20px 40px;
+      .title {
+        font-family: 'Roboto Slab', serif;
+        font-size: 40px;
+      }
     }
   }
 }
