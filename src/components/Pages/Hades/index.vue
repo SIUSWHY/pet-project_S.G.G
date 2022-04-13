@@ -1,16 +1,21 @@
 <template>
   <div>
-    asdasda
+    <Menu />
     <div>
-      asdasda
-      <div>
-        asdasda
-        <div>
-          asdasda
-          <div>asdasda</div>
-          <div>asdasda</div>
-          <div>asdasda</div>
-          <div>asdasda</div>
+      <div class="composition-bg">
+        <div class="position-composition">
+          <div class="position-conteiners">
+            <img
+              src="../../../assets/GamePosters/Hages/HadesMainComposition/Minos-Banner-Parallax.png"
+              alt="hades-character"
+            />
+          </div>
+          <div class="position-conteiners">
+            <img
+              src="../../../assets/GamePosters/Hages/HadesMainComposition/Hades-Homepage-logo.png"
+              alt="hades-logo"
+            />
+          </div>
         </div>
       </div>
     </div>

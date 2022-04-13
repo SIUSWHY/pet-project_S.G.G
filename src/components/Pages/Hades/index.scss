@@ -1,0 +1,16 @@
+.composition-bg {
+  height: 380px;
+  background-image: url(../../../assets/GamePosters/Hages/HadesMainComposition/Hades-Homepage-Banner.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  .position-composition {
+    max-width: 1200px;
+    margin: auto;
+    .position-conteiners {
+      position: absolute;
+      top: -106px;
+      height: 100%;
+      margin-top: 100px;
+    }
+  }
+}
