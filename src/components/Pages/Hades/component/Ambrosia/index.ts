@@ -3,6 +3,6 @@ import { Component, Vue } from 'vue-property-decorator';
   components: {
   },
 })
-export default class HadesContent extends Vue {
+export default class Ambrosia extends Vue {
 
 }

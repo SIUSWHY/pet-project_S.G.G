@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/index.vue'
 import Hades from '../components/Pages/Hades/index.vue'
+import Ambrosia from '@/components/Pages/Hades/component/Ambrosia'
 
 Vue.use(VueRouter)
 
@@ -28,7 +29,13 @@ const routes: Array<RouteConfig> = [
   {
     path: '/hades',
     name: 'Hades',
-    component: Hades
+    component: Hades,
+    children: [
+      {
+        path: 'ambrosia',
+        component: Ambrosia
+      },
+    ]
   },
 ]
 

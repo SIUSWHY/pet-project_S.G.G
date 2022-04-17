@@ -208,16 +208,12 @@
               />
               <p>Theseus</p>
             </div>
+            <p>See more characters</p>
           </div>
         </div>
       </div>
       <div class="block-style content">
-        <p>asdasdasdasdadwdqdasdqeqwd</p>
-        <p>asdasdasdasdadwdqdasdqeqwd</p>
-        <p>asdasdasdasdadwdqdasdqeqwd</p>
-        <p>asdasdasdasdadwdqdasdqeqwd</p>
-        <p>asdasdasdasdadwdqdasdqeqwd</p>
-        <p>asdasdasdasdadwdqdasdqeqwd</p>
+        <router-view></router-view>
       </div>
     </div>
   </div>
