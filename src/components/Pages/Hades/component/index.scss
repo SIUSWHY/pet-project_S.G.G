@@ -17,18 +17,20 @@
       justify-content: center;
       width: 300px;
       flex-wrap: wrap;
+      .active {
+        background: linear-gradient(0deg, #ff45117a, #25425200) no-repeat;
+        border-radius: 10px;
+      }
       a {
         color: whitesmoke;
         text-decoration: none;
         margin: 5px;
         width: 80px;
+        display: block;
+        min-height: 135px;
         img {
           height: 80px;
-          margin-top: 5px;
-        }
-        &.active {
-          background: linear-gradient(0deg, #ff45117a, #25425200) no-repeat;
-          border-radius: 10px;
+          margin: 5px 0px 15px;
         }
       }
     }

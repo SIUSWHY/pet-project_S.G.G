@@ -5,11 +5,12 @@
         <div class="block-style">
           <div class="title">Items</div>
           <div class="items-position">
-            <MenuItem
-              v-for="item in $store.state.Items"
-              :key="item.to"
-              :Item="item"
-            />
+            <div v-for="item in menuList" :key="item.to">
+              <router-link :to="item.to" active-class="active">
+                <img :src="require('@/assets/' + item.img)" :alt="item.title" />
+                {{ item.title }}
+              </router-link>
+            </div>
           </div>
         </div>
         <br />

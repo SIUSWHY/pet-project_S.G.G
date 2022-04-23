@@ -32,10 +32,54 @@ const routes: Array<RouteConfig> = [
     children: [
       {
         path: 'ambrosia',
-        // component: () => import('@/components/Pages/Hades/component/Ambrosia/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue')
       },
       {
         path: 'boons',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'centaur_heart',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'charons_obol',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'chthonic_key',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'daedalus_hammer',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'infernal_arms',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'keepsakes',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'pom_of_power',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'titan_blood',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'darkness',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'gemstone',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'heat',
         component: () => import('@/components/Pages/Hades/index.vue')
       },
     ]
