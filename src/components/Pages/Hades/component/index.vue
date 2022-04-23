@@ -5,98 +5,11 @@
         <div class="block-style">
           <div class="title">Items</div>
           <div class="items-position">
-            <div>
-              <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Items/Ambrosia.png"
-                alt="Ambrosia"
-              />
-              <p>Ambrosia</p>
-              <!-- <router-link to="/hades/ambrosia">Ambrosia</router-link> -->
-            </div>
-            <div>
-              <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Items/Ares_symbol.png"
-                alt="Boons"
-              />
-              <p>Boons</p>
-            </div>
-            <div>
-              <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Items/Centaur_Heart.png"
-                alt="Boons"
-              />
-              <p>Boons</p>
-            </div>
-            <div>
-              <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Items/Charon_s_Obol.png"
-                alt="Centaur_Heart"
-              />
-              <p>Centaur Heart</p>
-            </div>
-            <div>
-              <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Items/Chthonic_Key.png"
-                alt="Ambrosia"
-              />
-              <p>Ambrosia</p>
-            </div>
-            <div>
-              <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Items/Daedalus_Hammer.png"
-                alt="Ambrosia"
-              />
-              <p>Ambrosia</p>
-            </div>
-            <div>
-              <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Items/Darkness.png"
-                alt="Ambrosia"
-              />
-              <p>Ambrosia</p>
-            </div>
-            <div>
-              <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Items/FP_weapons.png"
-                alt="Ambrosia"
-              />
-              <p>Ambrosia</p>
-            </div>
-            <div>
-              <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Items/Gemstone.png"
-                alt="Ambrosia"
-              />
-              <p>Ambrosia</p>
-            </div>
-            <div>
-              <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Items/Heat.png"
-                alt="Ambrosia"
-              />
-              <p>Ambrosia</p>
-            </div>
-            <div>
-              <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Items/Old_Spiked_Collar.png"
-                alt="Ambrosia"
-              />
-              <p>Ambrosia</p>
-            </div>
-            <div>
-              <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Items/Pom_of_Power.png"
-                alt="Ambrosia"
-              />
-              <p>Ambrosia</p>
-            </div>
-            <div>
-              <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Items/Titan_Blood.png"
-                alt="Ambrosia"
-              />
-              <p>Ambrosia</p>
-            </div>
+            <MenuItem
+              v-for="item in $store.state.Items"
+              :key="item.to"
+              :Item="item"
+            />
           </div>
         </div>
         <br />
@@ -105,105 +18,105 @@
           <div class="items-position">
             <div>
               <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Zagreus.png"
+                src="@/assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Zagreus.png"
                 alt="Zagreus"
               />
               <p>Zagreus</p>
             </div>
             <div>
               <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Hades.png"
+                src="@/assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Hades.png"
                 alt="Hades"
               />
               <p>Hades</p>
             </div>
             <div>
               <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Nyx.png"
+                src="@/assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Nyx.png"
                 alt="Nyx"
               />
               <p>Nyx</p>
             </div>
             <div>
               <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Achilles.png"
+                src="@/assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Achilles.png"
                 alt="Achilles"
               />
               <p>Achilles</p>
             </div>
             <div>
               <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Megaera.png"
+                src="@/assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Megaera.png"
                 alt="Megaera"
               />
               <p>Megaera</p>
             </div>
             <div>
               <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Thanatos.png"
+                src="@/assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Thanatos.png"
                 alt="Thanatos"
               />
               <p>Thanatos</p>
             </div>
             <div>
               <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Aphrodite.png"
+                src="@/assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Aphrodite.png"
                 alt="Aphrodite"
               />
               <p>Aphrodite</p>
             </div>
             <div>
               <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Ares.png"
+                src="@/assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Ares.png"
                 alt="Ares"
               />
               <p>Ares</p>
             </div>
             <div>
               <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Artemis.png"
+                src="@/assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Artemis.png"
                 alt="Artemis"
               />
               <p>Artemis</p>
             </div>
             <div>
               <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Athena.png"
+                src="@/assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Athena.png"
                 alt="Athena"
               />
               <p>Athena</p>
             </div>
             <div>
               <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Hermes.png"
+                src="@/assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Hermes.png"
                 alt="Hermes"
               />
               <p>Hermes</p>
             </div>
             <div>
               <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Poseidon.png"
+                src="@/assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Poseidon.png"
                 alt="Poseidon"
               />
               <p>Poseidon</p>
             </div>
             <div>
               <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Zeus.png"
+                src="@/assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Zeus.png"
                 alt="Zeus"
               />
               <p>Zeus</p>
             </div>
             <div>
               <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Chaos.png"
+                src="@/assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Chaos.png"
                 alt="Chaos"
               />
               <p>Chaos</p>
             </div>
             <div>
               <img
-                src="../../../../assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Theseus.png"
+                src="@/assets/GamePosters/Hages/HadesMainComposition/Characters/FP_Theseus.png"
                 alt="Theseus"
               />
               <p>Theseus</p>
@@ -212,9 +125,7 @@
           </div>
         </div>
       </div>
-      <div class="block-style content">
-        <router-view></router-view>
-      </div>
+      <div class="block-style content"></div>
     </div>
   </div>
 </template>

@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import Home from '../views/index.vue'
-import Hades from '../components/Pages/Hades/index.vue'
-import Ambrosia from '@/components/Pages/Hades/component/Ambrosia'
+import Home from '@/views/index.vue'
+import Hades from '@/components/Pages/Hades/index.vue'
 
 Vue.use(VueRouter)
 
@@ -29,11 +28,15 @@ const routes: Array<RouteConfig> = [
   {
     path: '/hades',
     name: 'Hades',
-    component: Hades,
+    component: () => import('@/components/Pages/Hades/index.vue'),
     children: [
       {
         path: 'ambrosia',
-        component: Ambrosia
+        // component: () => import('@/components/Pages/Hades/component/Ambrosia/index.vue')
+      },
+      {
+        path: 'boons',
+        component: () => import('@/components/Pages/Hades/index.vue')
       },
     ]
   },
