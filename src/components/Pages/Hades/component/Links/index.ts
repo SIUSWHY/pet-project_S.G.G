@@ -7,7 +7,7 @@ import CharactersList from './characters';
   components: {
   },
 })
-export default class HadesContent extends Vue {
+export default class Links extends Vue {
   @Prop({ type: Boolean, default: false }) private isActive?: boolean;
 
   private menuList: MenuItemType = ItemsData;

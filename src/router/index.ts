@@ -82,6 +82,70 @@ const routes: Array<RouteConfig> = [
         path: 'heat',
         component: () => import('@/components/Pages/Hades/index.vue')
       },
+      {
+        path: 'zagreus',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'hades',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'achilles',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'megaera',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'thanatos',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'aphrodite',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'artemis',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'athena',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'hermes',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'poseidon',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'zeus',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'chaos',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'theseus',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'nyx',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'ares',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
+      {
+        path: 'all_characters',
+        component: () => import('@/components/Pages/Hades/index.vue')
+      },
     ]
   },
 ]
