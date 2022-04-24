@@ -8,8 +8,6 @@ import CharactersList from './characters';
   },
 })
 export default class Links extends Vue {
-  @Prop({ type: Boolean, default: false }) private isActive?: boolean;
-
   private menuList: MenuItemType = ItemsData;
   private characterList: MenuItemType = CharactersList;
 }

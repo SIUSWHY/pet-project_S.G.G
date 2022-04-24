@@ -16,7 +16,7 @@
       <div class="title">Characters</div>
       <div class="items-position">
         <div v-for="item in characterList" :key="item.to">
-          <router-link :to="item.to" active-class="active">
+          <router-link :to="item.to" active-class="active-character">
             <img :src="require('@/assets/' + item.img)" :alt="item.title" />
             {{ item.title }}
           </router-link>
