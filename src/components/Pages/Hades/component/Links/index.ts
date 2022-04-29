@@ -8,6 +8,6 @@ import CharactersList from './characters';
   },
 })
 export default class Links extends Vue {
-  private menuList: MenuItemType = ItemsData;
-  private characterList: MenuItemType = CharactersList;
+  private menuList: Array<MenuItemType> = ItemsData;
+  private characterList: Array<MenuItemType> = CharactersList;
 }

@@ -4,7 +4,9 @@
       <div class="position">
         <Links />
       </div>
-      <div class="block-style content"></div>
+      <div class="block-style content">
+        <Content />
+      </div>
     </div>
   </div>
 </template>
