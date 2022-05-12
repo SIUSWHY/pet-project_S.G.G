@@ -28,7 +28,6 @@
         </p>
       </div>
     </div>
-    <Content />
   </div>
 </template>
 
