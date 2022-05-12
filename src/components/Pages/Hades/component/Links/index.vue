@@ -1,7 +1,7 @@
 <template>
   <div class="position">
     <div class="block-style">
-      <div class="title">Items</div>
+      <div class="title">{{ $t('hades.items') }}</div>
       <div class="items-position">
         <div v-for="item in menuList" :key="item.to">
           <router-link :to="item.to" active-class="active">
@@ -13,7 +13,7 @@
     </div>
     <br />
     <div class="block-style">
-      <div class="title">Characters</div>
+      <div class="title">{{ $t('hades.characters') }}</div>
       <div class="items-position">
         <div v-for="item in characterList" :key="item.to">
           <router-link :to="item.to" active-class="active-character">
@@ -28,7 +28,6 @@
         </p>
       </div>
     </div>
-    <Content />
   </div>
 </template>
 

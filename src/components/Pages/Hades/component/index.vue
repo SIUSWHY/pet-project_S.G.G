@@ -6,6 +6,7 @@
       </div>
       <div class="block-style content">
         <Content />
+        <!-- <vue-editor /> -->
       </div>
     </div>
   </div>
