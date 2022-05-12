@@ -16,6 +16,8 @@
       <div class="block-style">
         <Content />
       </div> -->
+        <!-- <vue-editor /> -->
+      </div>
     </div>
   </div>
 </template>
