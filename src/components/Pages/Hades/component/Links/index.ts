@@ -1,5 +1,5 @@
 import { MenuItemType } from '@/types/Menu';
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import ItemsData from './items'
 import CharactersList from './characters';
 
@@ -8,6 +8,6 @@ import CharactersList from './characters';
   },
 })
 export default class Links extends Vue {
-  private menuList: MenuItemType = ItemsData;
-  private characterList: MenuItemType = CharactersList;
+  private menuList: Array<MenuItemType> = ItemsData;
+  private characterList: Array<MenuItemType> = CharactersList;
 }
