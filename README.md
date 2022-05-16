@@ -12,6 +12,12 @@ npm install
 npm run serve
 ```
 
+### Start server hot-reloads for development
+
+```
+npm run server
+```
+
 ### Compiles and minifies for production
 
 ```

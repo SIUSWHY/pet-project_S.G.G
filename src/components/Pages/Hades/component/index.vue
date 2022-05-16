@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container">
-      <div class="card">
+      <!-- <div class="card">
         <div class="content-padding">
           <img
             src="@/assets/GamePosters/Hages/HadesMainComposition/Items/Ambrosia.png"
@@ -9,13 +9,13 @@
           />
           <p>Ambrosia</p>
         </div>
-      </div>
-      <!-- <div class="position">
+      </div> -->
+      <div class="position">
         <Links />
       </div>
       <div class="block-style">
         <Content />
-      </div> -->
+      </div>
         <!-- <vue-editor /> -->
       </div>
     </div>

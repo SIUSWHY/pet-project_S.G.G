@@ -1,7 +1,7 @@
 import { MenuItemType } from '@/types/Menu';
 import { Component, Vue } from 'vue-property-decorator';
-import ItemsData from './items'
-import CharactersList from './characters';
+import ItemsData from './items.json'
+import CharactersList from './characters.json';
 
 @Component({
   components: {
