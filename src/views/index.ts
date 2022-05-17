@@ -5,8 +5,8 @@ import MainPageMobile from '/src/components/Home/MainPageMobile/index.vue';
 @Component({
   components: {
     MainPage,
-    MainPageMobile
-  }
+    MainPageMobile,
+  },
 })
 export default class Home extends Vue {
   get getTypePC(): boolean {

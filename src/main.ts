@@ -10,7 +10,7 @@ Vue.use(VueI18n, Vue2Editor);
 
 const i18n = new VueI18n({
   locale: 'en',
-  messages: { en: locales }
+  messages: { en: locales },
 });
 
 Vue.config.productionTip = false;
@@ -19,5 +19,5 @@ new Vue({
   router,
   store,
   i18n,
-  render: (h) => h(App)
+  render: h => h(App),
 }).$mount('#app');

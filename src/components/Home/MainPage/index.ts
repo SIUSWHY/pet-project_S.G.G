@@ -3,7 +3,7 @@ import GameCollection from './GameCollection/index.vue';
 
 @Component({
   components: {
-    GameCollection
-  }
+    GameCollection,
+  },
 })
 export default class MainPage extends Vue {}

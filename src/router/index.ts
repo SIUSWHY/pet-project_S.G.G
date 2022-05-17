@@ -9,22 +9,22 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
   },
   {
     path: '/bastion',
     name: 'Bastion',
-    component: Home
+    component: Home,
   },
   {
     path: '/transistor',
     name: 'Transistor',
-    component: Home
+    component: Home,
   },
   {
     path: '/pyre',
     name: 'Pyre',
-    component: Home
+    component: Home,
   },
   {
     path: '/hades',
@@ -33,128 +33,128 @@ const routes: Array<RouteConfig> = [
     children: [
       {
         path: 'ambrosia',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'boons',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'centaur_heart',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'charons_obol',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'chthonic_key',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'daedalus_hammer',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'infernal_arms',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'keepsakes',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'pom_of_power',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'titan_blood',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'darkness',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'gemstone',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'heat',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'zagreus',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'hades',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'achilles',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'megaera',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'thanatos',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'aphrodite',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'artemis',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'athena',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'hermes',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'poseidon',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'zeus',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'chaos',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'theseus',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'nyx',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'ares',
-        component: () => import('@/components/Pages/Hades/index.vue')
+        component: () => import('@/components/Pages/Hades/index.vue'),
       },
       {
         path: 'all_characters',
-        component: () => import('@/components/Pages/Hades/index.vue')
-      }
-    ]
-  }
+        component: () => import('@/components/Pages/Hades/index.vue'),
+      },
+    ],
+  },
 ];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
 });
 
 export default router;

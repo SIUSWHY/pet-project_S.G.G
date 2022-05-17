@@ -1,5 +1,5 @@
-import { model, Schema } from "mongoose"
-import { UserType } from "../types/userType";
+import { model, Schema } from 'mongoose';
+import { UserType } from '../types/userType';
 
 //ItemCard Schema
 const NewUserShema = new Schema<UserType>({
@@ -7,9 +7,9 @@ const NewUserShema = new Schema<UserType>({
   name: String,
   email: String,
   password: String,
-  role: { type: String, default: "User" },
-  avatar: { type: String, default: "@/spirit" },
+  role: { type: String, default: 'User' },
+  avatar: { type: String, default: '@/spirit' },
   registerDate: Date,
-})
+});
 
 export default model<UserType>('Users', NewUserShema);

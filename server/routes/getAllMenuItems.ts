@@ -1,6 +1,6 @@
-import express from 'express'
+import express from 'express';
 import modelCharacterList from '../models/modelCharacterList';
-import ItemCards from '../models/modelItemsCard'
+import ItemCards from '../models/modelItemsCard';
 import { CardType } from '../types/cardType';
 const allMenuItems = express.Router();
 
@@ -9,8 +9,9 @@ allMenuItems.get('/allMenuItems', async (_req, res) => {
   const Characters: CardType[] = await modelCharacterList.find();
   Promise.all([Items, Characters]);
   res.json({
-    Items, Characters
+    Items,
+    Characters,
   });
 });
 
-export default allMenuItems
+export default allMenuItems;

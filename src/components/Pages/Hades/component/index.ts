@@ -7,7 +7,7 @@ import { VueEditor } from 'vue2-editor';
   components: {
     Links,
     Content,
-    VueEditor
-  }
+    VueEditor,
+  },
 })
 export default class HadesContent extends Vue {}

@@ -4,7 +4,7 @@ import HadesContent from './component/index.vue';
 @Component({
   components: {
     Menu,
-    HadesContent
-  }
+    HadesContent,
+  },
 })
 export default class Hades extends Vue {}
