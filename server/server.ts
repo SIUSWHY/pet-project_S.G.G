@@ -5,6 +5,7 @@ import cors from 'cors'
 import getItemCards from './routes/getItemCards'
 import getCharacterList from './routes/getCharacterList';
 import allMenuItems from './routes/getAllMenuItems';
+import CreateNewUser from './controllers/registration';
 
 async function run() {
   const app = express();
@@ -22,11 +23,11 @@ async function run() {
 
   await mongoose.connect('mongodb://localhost:27017/Project');
 
-  app.use(getItemCards);
-  app.use(getCharacterList);
-  app.use(allMenuItems);
+  app.use([getItemCards, getCharacterList, allMenuItems, CreateNewUser]);
 
-  app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+  app.listen(port, () => console.log(`
+  Example app listening on port ${port}!
+  `))
 }
 
 run();
