@@ -1,16 +1,17 @@
-import Vue from 'vue'
-import VueRouter, { RouteConfig } from 'vue-router'
-import Home from '@/views/index.vue'
-import Hades from '@/components/Pages/Hades/index.vue'
+import Vue from 'vue';
+import VueRouter, { RouteConfig } from 'vue-router';
+import Home from '@/views/index.vue';
+import Hades from '@/components/Pages/Hades/index.vue';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'Home',
     component: Home
-  }, {
+  },
+  {
     path: '/bastion',
     name: 'Bastion',
     component: Home
@@ -145,15 +146,15 @@ const routes: Array<RouteConfig> = [
       {
         path: 'all_characters',
         component: () => import('@/components/Pages/Hades/index.vue')
-      },
+      }
     ]
-  },
-]
+  }
+];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
-})
+});
 
-export default router
+export default router;

@@ -1,8 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-import cors from 'cors'
-import getItemCards from './routes/getItemCards'
+import cors from 'cors';
+import getItemCards from './routes/getItemCards';
 import getCharacterList from './routes/getCharacterList';
 import allMenuItems from './routes/getAllMenuItems';
 import CreateNewUser from './controllers/registration';
@@ -25,10 +25,11 @@ async function run() {
 
   app.use([getItemCards, getCharacterList, allMenuItems, CreateNewUser]);
 
-  app.listen(port, () => console.log(`
+  app.listen(port, () =>
+    console.log(`
   Example app listening on port ${port}!
-  `))
+  `)
+  );
 }
 
 run();
-

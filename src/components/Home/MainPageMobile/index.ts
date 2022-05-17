@@ -1,8 +1,6 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
-  components: {
-  },
+  components: {}
 })
-export default class MainPageMobile extends Vue {
-}
+export default class MainPageMobile extends Vue {}

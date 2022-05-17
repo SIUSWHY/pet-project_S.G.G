@@ -1,10 +1,9 @@
 import { Component, Vue } from 'vue-property-decorator';
-import GameCollection from './GameCollection/index.vue'
+import GameCollection from './GameCollection/index.vue';
 
 @Component({
   components: {
-    GameCollection,
-  },
+    GameCollection
+  }
 })
-export default class MainPage extends Vue {
-}
+export default class MainPage extends Vue {}
