@@ -6,7 +6,7 @@ const NewUserShema = new Schema<UserType>({
   username: String,
   name: String,
   email: String,
-  password: String,
+  hashPassword: String,
   role: { type: String, default: 'User' },
   avatar: { type: String, default: '@/spirit' },
   registerDate: Date,
