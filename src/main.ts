@@ -5,6 +5,7 @@ import store from './store';
 import VueI18n from 'vue-i18n';
 import Vue2Editor from 'vue2-editor';
 import locales from './locales/en.json';
+import vuetify from '@/plugins/vuetify'
 
 Vue.use(VueI18n, Vue2Editor);
 
@@ -16,6 +17,7 @@ const i18n = new VueI18n({
 Vue.config.productionTip = false;
 
 new Vue({
+  vuetify,
   router,
   store,
   i18n,
