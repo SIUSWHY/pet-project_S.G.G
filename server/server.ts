@@ -6,6 +6,7 @@ import getItemCards from './routes/getItemCards';
 import getCharacterList from './routes/getCharacterList';
 import getAllMenuItems from './routes/getAllMenuItems';
 import CreateNewUser from './controllers/registration';
+import LoginUser from './controllers/login';
 
 async function run() {
   const app = express();
@@ -17,7 +18,7 @@ async function run() {
 
   await mongoose.connect('mongodb://localhost:27017/Project');
 
-  app.use([getItemCards, getCharacterList, getAllMenuItems, CreateNewUser]);
+  app.use([getItemCards, getCharacterList, getAllMenuItems, CreateNewUser, LoginUser]);
 
   app.listen(port, () =>
     console.log(`

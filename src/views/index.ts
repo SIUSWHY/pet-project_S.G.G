@@ -11,9 +11,7 @@ import MainPageMobile from '/src/components/Home/MainPageMobile/index.vue';
 export default class Home extends Vue {
   get getTypePC(): boolean {
     if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      )
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
     ) {
       return true;
     } else {

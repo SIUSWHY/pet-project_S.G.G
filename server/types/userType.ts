@@ -3,7 +3,7 @@ export interface UserType {
   username: string;
   name: string;
   email: string;
-  password: string;
+  hashPassword: string;
   role: string;
   avatar: string;
   registerDate: Date;
