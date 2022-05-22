@@ -17,7 +17,7 @@ const routes: Array<RouteConfig> = [
     component: () => import('@/components/Dashboard/index.vue'),
     children: [{
       path: 'users',
-      // component: () => import('@/components/Dashboard/index.vue'),
+      component: () => import('@/components/Dashboard/Component/Users/index.vue'),
     },
     {
       path: 'all',

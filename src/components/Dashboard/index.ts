@@ -13,7 +13,6 @@ export default class Dashboard extends Vue {
         { title: 'About', icon: 'mdi-help-box' },
         { title: 'Users', icon: 'mdi-account-group-outline', link: '/dashboard/users' },
       ],
-      right: null,
     }
   }
 }

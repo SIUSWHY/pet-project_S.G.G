@@ -5,21 +5,14 @@
         <v-navigation-drawer permanent>
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title class="text-h6">
-                SuperGiant Games
-              </v-list-item-title>
+              <v-list-item-title class="text-h6"> Dashboard </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
 
           <v-divider></v-divider>
 
           <v-list dense nav>
-            <v-list-item
-              v-for="item in items"
-              :key="item.title"
-              link
-              :to="item.link"
-            >
+            <v-list-item v-for="item in items" :key="item.title" link :to="item.link">
               <v-list-item-icon>
                 <v-icon>{{ item.icon }}</v-icon>
               </v-list-item-icon>
@@ -46,6 +39,17 @@
     <v-main>
       <!-- Provides the application the proper gutter -->
       <v-container fluid>
+        <!-- <v-app id="inspire">
+          <v-data-table :headers="headers" :items="desserts" sort-by="calories" class="elevation-1">
+            <template v-slot:item.actions="{ item }">
+              <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
+              <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+            </template>
+            <template v-slot:no-data>
+              <v-btn color="primary" @click="initialize"> Reset </v-btn>
+            </template>
+          </v-data-table>
+        </v-app> -->
         <!-- If using vue-router -->
         <router-view></router-view>
       </v-container>
