@@ -3,12 +3,15 @@ import { UserType } from '../types/userType';
 
 //ItemCard Schema
 const NewUserShema = new Schema<UserType>({
+  hashPassword: String,
   username: String,
   name: String,
   email: String,
-  hashPassword: String,
   role: { type: String, default: 'User' },
-  avatar: { type: String, default: '@/spirit' },
+  avatar: {
+    type: String,
+    default: 'GamePosters/Hages/HadesMainComposition/Characters/FP_Chaos.png',
+  },
   registerDate: Date,
 });
 

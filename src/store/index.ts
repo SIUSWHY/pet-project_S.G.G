@@ -1,11 +1,16 @@
+import usersStore from '@/components/Dashboard/Component/Users/store';
 import Vue from 'vue';
 import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {},
   mutations: {},
   actions: {},
-  modules: {},
+  modules: {
+    users: usersStore,
+  },
 });
+
+export default store;
