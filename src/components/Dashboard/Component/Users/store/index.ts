@@ -1,27 +1,17 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import getUsers from '@/API/getUsers';
+import { Module, ModuleTree } from 'vuex';
+import { actions } from './actions';
+import { mutations } from './mutation';
+import { getters } from './getters';
+import { RootState, UsersList } from './types';
 
-const SET_USERS = 'SET_USERS';
-
-//VueX store
-const store = {
-  namespaced: true,
-  state: {
-    users: [],
-  },
-  actions: {
-    async loadData({ commit }) {
-      const { data: usersList } = await getUsers();
-      commit(SET_USERS, usersList);
-    },
-  },
-  mutations: {
-    [SET_USERS](state, usersList) {
-      state.users = usersList;
-    },
-  },
+export const state: UsersList = {
+  users: [],
 };
-console.log(store.state.users);
 
-export default store;
+export const usersList: Module<UsersList, ModuleTree<RootState>> = {
+  namespaced: true,
+  getters,
+  actions,
+  mutations,
+  state,
+};

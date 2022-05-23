@@ -3,9 +3,8 @@
     <v-data-table
       v-model="selected"
       :headers="headers"
-      :items="$store.store.users.users"
-      :single-select="singleSelect"
-      item-key="name"
+      :items="$store.state.usersList.users"
+      item-key="_id"
       show-select
       class="elevation-1"
     >

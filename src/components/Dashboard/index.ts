@@ -1,10 +1,9 @@
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component({
-  components: {
-
-  },
+  components: {},
 })
 export default class Dashboard extends Vue {
+  @Prop({ type: Boolean, default: true }) private isDisable?: boolean | undefined;
   data() {
     return {
       items: [
@@ -13,6 +12,12 @@ export default class Dashboard extends Vue {
         { title: 'About', icon: 'mdi-help-box' },
         { title: 'Users', icon: 'mdi-account-group-outline', link: '/dashboard/users' },
       ],
+    };
+  }
+
+  private name() {
+    if (selected !== []) {
+      return (this.isDisable = false);
     }
   }
 }

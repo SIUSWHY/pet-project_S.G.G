@@ -1,25 +1,34 @@
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import { namespace } from 'vuex-class';
+const users = namespace('users');
 @Component({
   components: {},
 })
 export default class Users extends Vue {
+  @users.Action private loadData!: () => Promise<void>;
   data() {
     return {
-      singleSelect: false,
       selected: [],
       headers: [
-        { text: '', value: 'avatar', sortable: false, width: '1px' },
+        { text: '', value: 'avatar', sortable: false, width: '1px', height: '60px' },
         {
-          text: 'User',
+          text: 'Username',
           align: 'start',
-          value: 'name',
+          value: 'username',
         },
+        { text: 'Name', value: 'name' },
+        { text: 'Email', value: 'email' },
         { text: 'Role', value: 'role' },
       ],
     };
   }
 
-  created() {
-    this.$store.dispatch('users/loadData');
+  private name() {
+    const selecte = this.data.selected;
+    this.$emit('check', selecte);
+  }
+
+  async created() {
+    await this.$store.dispatch('usersList/loadData');
   }
 }

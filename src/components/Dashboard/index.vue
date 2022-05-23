@@ -31,33 +31,28 @@
       </template>
     </v-navigation-drawer>
 
-    <v-app-bar app>
-      <!-- -->
+    <v-app-bar dense app>
+      <v-btn icon>
+        <v-icon :disabled="isDisable">mdi-trash-can</v-icon>
+      </v-btn>
+      <v-btn icon>
+        <v-icon :disabled="isDisable">mdi-pencil</v-icon>
+      </v-btn>
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <!-- Sizes your content based upon application components -->
     <v-main>
       <!-- Provides the application the proper gutter -->
       <v-container fluid>
-        <!-- <v-app id="inspire">
-          <v-data-table :headers="headers" :items="desserts" sort-by="calories" class="elevation-1">
-            <template v-slot:item.actions="{ item }">
-              <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
-              <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
-            </template>
-            <template v-slot:no-data>
-              <v-btn color="primary" @click="initialize"> Reset </v-btn>
-            </template>
-          </v-data-table>
-        </v-app> -->
-        <!-- If using vue-router -->
         <router-view></router-view>
       </v-container>
     </v-main>
 
-    <v-footer app>
-      <!-- -->
-    </v-footer>
+    <!-- <v-footer app>
+    </v-footer> -->
   </v-app>
 </template>
 
