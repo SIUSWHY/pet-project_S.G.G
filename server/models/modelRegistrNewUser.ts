@@ -9,8 +9,8 @@ const NewUserShema = new Schema<UserType>({
   email: String,
   role: { type: String, default: 'User' },
   avatar: {
-    type: String,
-    default: 'GamePosters/Hages/HadesMainComposition/Characters/FP_Chaos.png',
+    data: Buffer,
+    contentType: String,
   },
   registerDate: Date,
 });

@@ -33,6 +33,12 @@
 
     <v-app-bar dense app>
       <v-btn icon>
+        <v-icon>mdi-refresh</v-icon>
+      </v-btn>
+      <v-btn @click="openModal()" icon>
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+      <v-btn icon>
         <v-icon :disabled="isDisable">mdi-trash-can</v-icon>
       </v-btn>
       <v-btn icon>
@@ -41,6 +47,48 @@
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
+      <v-dialog v-model="isOpen" max-width="500px">
+        <v-card>
+          <v-card-title>Create User</v-card-title>
+          <v-card-text>
+            <v-text-field v-model="user.username" label="Username"></v-text-field>
+            <v-text-field v-model="user.name" label="Name"></v-text-field>
+            <v-text-field v-model="user.email" label="Email"></v-text-field>
+            <v-text-field
+              v-model="user.password"
+              label="Password"
+              :type="isHide ? 'text' : 'password'"
+              :append-icon="isHide ? 'mdi-eye' : 'mdi-eye-off'"
+              @click:append="isHide = !isHide"
+            ></v-text-field>
+            <v-file-input
+              accept="image/png, image/jpeg, image/bmp"
+              placeholder="Pick an avatar"
+              v-model="user.avatar"
+              prepend-icon=""
+              label="Avatar"
+            ></v-file-input>
+            <v-autocomplete v-model="user.role" :items="roles" label="Role" />
+          </v-card-text>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+
+            <v-btn
+              text
+              color="primary"
+              @click="
+                () => {
+                  postUser();
+                  isOpen = !isOpen;
+                }
+              "
+            >
+              Submit
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-app-bar>
 
     <!-- Sizes your content based upon application components -->
