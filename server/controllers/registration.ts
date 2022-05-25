@@ -2,9 +2,10 @@ import express from 'express';
 import cryptPassword from '../helpers/hashPassword';
 import validation from '../helpers/validation';
 import Users from '../models/modelRegistrNewUser';
+import multer from 'multer';
 const CreateNewUser = express.Router();
 
-CreateNewUser.post('/createNewUser', async (req, res) => {
+CreateNewUser.post('/createNewUser', multer().none(), async (req, res) => {
   const { password, username, name, email } = req.body;
   const hashPassword: string = await cryptPassword(password);
 

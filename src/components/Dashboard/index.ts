@@ -1,5 +1,5 @@
+import sendUser from '@/API/sendUser';
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import cryptPassword from '../../../server/helpers/hashPassword';
 @Component({
   components: {},
 })
@@ -36,15 +36,14 @@ export default class Dashboard extends Vue {
   }
 
   private async postUser() {
-    const password: string = await cryptPassword(this.user.password);
-    const response = {
-      username: this.user.username,
-      name: this.user.name,
-      email: this.user.email,
-      password: password,
-      avatar: this.user.avatar,
-      role: this.user.role,
-    };
-    console.log(response);
+    const response = new FormData();
+    response.append('username', this.user.username);
+    response.append('name', this.user.name);
+    response.append('email', this.user.email);
+    response.append('password', this.user.password);
+    // response.append('avatar', this.user.avatar);
+    response.append('role', this.user.role);
+    const data = await sendUser(response);
+    console.log(data);
   }
 }
