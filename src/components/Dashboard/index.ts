@@ -9,7 +9,7 @@ export default class Dashboard extends Vue {
   @Prop({ type: Boolean, default: false }) private isLoading?: boolean;
   @Prop({ type: Boolean, default: true }) private isHide?: boolean;
   @usersList.Action private loadData!: () => Promise<void>;
-  @usersList.Getter private isDisableTools!: boolean;
+  @usersList.Getter private isDisableTools!: object;
   @usersList.State private selected!: any;
 
   private items = [
@@ -27,7 +27,7 @@ export default class Dashboard extends Vue {
     avatar: '',
   };
   private roles = ['User', 'Moderator', 'Admin'];
-  private isDialogOpen = false;
+  private isDialogOpen: boolean = false;
   private isDisable = true;
 
   @Watch('selected')
@@ -36,7 +36,7 @@ export default class Dashboard extends Vue {
   }
 
   private openModal() {
-    return (this.isDialogOpen = !this.isDialogOpen);
+    this.isDialogOpen = !this.isDialogOpen;
   }
 
   private async refreshData() {

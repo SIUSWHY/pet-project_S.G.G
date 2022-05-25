@@ -4,8 +4,11 @@ import { RootState, UsersList } from './types';
 export const getters: GetterTree<UsersList, RootState> = {
   isDisableTools(state) {
     if (state.selected.length === 0) {
-      return true;
+      return { deleteTool: true, additTool: true };
     }
-    return false;
+    if (state.selected.length === 1) {
+      return { deleteTool: false, additTool: false };
+    }
+    return { deleteTool: false, additTool: true };
   },
 };

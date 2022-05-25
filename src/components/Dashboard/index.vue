@@ -38,10 +38,10 @@
       <v-btn @click="openModal()" icon>
         <v-icon>mdi-plus</v-icon>
       </v-btn>
-      <v-btn :disabled="isDisableTools" icon>
+      <v-btn :disabled="isDisableTools.deleteTool" icon>
         <v-icon>mdi-trash-can</v-icon>
       </v-btn>
-      <v-btn :disabled="isDisableTools" icon>
+      <v-btn :disabled="isDisableTools.additTool" icon>
         <v-icon>mdi-pencil</v-icon>
       </v-btn>
       <v-btn icon>
@@ -81,7 +81,7 @@
               @click="
                 () => {
                   postUser();
-                  isOpen = !isOpen;
+                  isDialogOpen = !isDialogOpen;
                 }
               "
             >
