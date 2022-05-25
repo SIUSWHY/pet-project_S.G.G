@@ -38,16 +38,16 @@
       <v-btn @click="openModal()" icon>
         <v-icon>mdi-plus</v-icon>
       </v-btn>
-      <v-btn icon>
-        <v-icon :disabled="isDisable">mdi-trash-can</v-icon>
+      <v-btn :disabled="isDisableTools" icon>
+        <v-icon>mdi-trash-can</v-icon>
       </v-btn>
-      <v-btn icon>
-        <v-icon :disabled="isDisable">mdi-pencil</v-icon>
+      <v-btn :disabled="isDisableTools" icon>
+        <v-icon>mdi-pencil</v-icon>
       </v-btn>
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
-      <v-dialog v-model="isOpen" max-width="500px">
+      <v-dialog v-model="isDialogOpen" max-width="500px">
         <v-card>
           <v-card-title>Create User</v-card-title>
           <v-card-text>

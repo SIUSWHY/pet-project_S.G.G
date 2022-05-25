@@ -6,12 +6,15 @@ import { RootState, UsersList } from './types';
 
 export const state: UsersList = {
   users: [],
+  selected: [],
 };
 
+const namespaced: boolean = true;
+
 export const usersList: Module<UsersList, ModuleTree<RootState>> = {
-  namespaced: true,
+  namespaced,
+  state,
   getters,
   actions,
   mutations,
-  state,
 };

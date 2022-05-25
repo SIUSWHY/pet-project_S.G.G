@@ -1,43 +1,42 @@
 import sendUser from '@/API/sendUser';
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
-const users = namespace('users');
+const usersList = namespace('usersList');
 @Component({
   components: {},
 })
 export default class Dashboard extends Vue {
-  @Prop({ type: Boolean, default: true }) private isDisable?: boolean | undefined;
-  @Prop({ type: Boolean, default: false }) private isDialogOpen?: boolean;
   @Prop({ type: Boolean, default: false }) private isLoading?: boolean;
   @Prop({ type: Boolean, default: true }) private isHide?: boolean;
-  @users.Action private loadData!: () => Promise<void>;
+  @usersList.Action private loadData!: () => Promise<void>;
+  @usersList.Getter private isDisableTools!: boolean;
+  @usersList.State private selected!: any;
 
-  isOpen: boolean | undefined;
-  user: any;
+  private items = [
+    { title: 'Dashboard', icon: 'mdi-view-dashboard', link: '/dashboard/dashboard' },
+    { title: 'My Account', icon: 'mdi-account', link: '/dashboard/all' },
+    { title: 'About', icon: 'mdi-help-box' },
+    { title: 'Users', icon: 'mdi-account-group-outline', link: '/dashboard/users' },
+  ];
+  private user = {
+    username: 'John',
+    name: 'Doue',
+    email: 'john.doue@gmail.com',
+    password: 'password',
+    role: 'User',
+    avatar: '',
+  };
+  private roles = ['User', 'Moderator', 'Admin'];
+  private isDialogOpen = false;
+  private isDisable = true;
 
-  data() {
-    return {
-      isOpen: this.isDialogOpen,
-      items: [
-        { title: 'Dashboard', icon: 'mdi-view-dashboard', link: '/dashboard/dashboard' },
-        { title: 'My Account', icon: 'mdi-account', link: '/dashboard/all' },
-        { title: 'About', icon: 'mdi-help-box' },
-        { title: 'Users', icon: 'mdi-account-group-outline', link: '/dashboard/users' },
-      ],
-      roles: ['User', 'Moderator', 'Admin'],
-      user: {
-        username: 'John',
-        name: 'Doue',
-        email: 'john.doue@gmail.com',
-        password: 'password',
-        role: 'User',
-        avatar: '',
-      },
-    };
+  @Watch('selected')
+  private toggleDisableTools() {
+    this.isDisableTools;
   }
 
   private openModal() {
-    return (this.isOpen = !this.isOpen);
+    return (this.isDialogOpen = !this.isDialogOpen);
   }
 
   private async refreshData() {
