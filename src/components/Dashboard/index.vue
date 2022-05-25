@@ -65,6 +65,7 @@
               accept="image/png, image/jpeg, image/bmp"
               placeholder="Pick an avatar"
               v-model="user.avatar"
+              name="avatar"
               prepend-icon=""
               label="Avatar"
             ></v-file-input>

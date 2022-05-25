@@ -41,7 +41,7 @@ export default class Dashboard extends Vue {
     response.append('name', this.user.name);
     response.append('email', this.user.email);
     response.append('password', this.user.password);
-    // response.append('avatar', this.user.avatar);
+    response.append('avatar', this.user.avatar);
     response.append('role', this.user.role);
     const data = await sendUser(response);
     console.log(data);

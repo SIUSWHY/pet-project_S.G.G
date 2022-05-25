@@ -3,11 +3,30 @@ import cryptPassword from '../helpers/hashPassword';
 import validation from '../helpers/validation';
 import Users from '../models/modelRegistrNewUser';
 import multer from 'multer';
+import fs from 'fs';
 const CreateNewUser = express.Router();
 
-CreateNewUser.post('/createNewUser', multer().none(), async (req, res) => {
+// SET STORAGE
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'src/assets/upload/');
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now());
+  },
+});
+
+const upload = multer({ storage: storage });
+
+CreateNewUser.post('/createNewUser', upload.single('avatar'), async (req, res) => {
   const { password, username, name, email } = req.body;
   const hashPassword: string = await cryptPassword(password);
+  const img = fs.readFileSync(req.file!.path);
+  const encode_img = img.toString('base64');
+  const avatar = {
+    contentType: req.file!.mimetype,
+    image: new Buffer(encode_img, 'base64'),
+  };
 
   // const errors = await validation(req, res);
   // if (errors.length !== 0) {
@@ -15,8 +34,9 @@ CreateNewUser.post('/createNewUser', multer().none(), async (req, res) => {
   //     errors,
   //   });
   // }
+  console.log(req.body, req.file);
 
-  const User = await Users.create({ username, name, email, hashPassword });
+  const User = await Users.create({ username, name, email, hashPassword, avatar });
   res.send(User);
 });
 

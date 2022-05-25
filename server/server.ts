@@ -8,6 +8,7 @@ import getAllMenuItems from './routes/getAllMenuItems';
 import CreateNewUser from './controllers/registration';
 import LoginUser from './controllers/login';
 import getUsers from './routes/getUsers';
+import multer from 'multer';
 
 async function run() {
   const app = express();

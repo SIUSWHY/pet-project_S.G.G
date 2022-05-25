@@ -4,7 +4,7 @@ export interface UserType {
   name: string;
   email: string;
   role: string;
-  avatar: string;
+  avatar: { name: string; desc: string; img: { data: Buffer; contentType: String } };
   registerDate: Date;
   hashPassword: string;
 }

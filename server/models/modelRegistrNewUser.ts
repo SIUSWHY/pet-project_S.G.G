@@ -8,10 +8,7 @@ const NewUserShema = new Schema<UserType>({
   name: String,
   email: String,
   role: { type: String, default: 'User' },
-  avatar: {
-    data: Buffer,
-    contentType: String,
-  },
+  avatar: {},
   registerDate: Date,
 });
 

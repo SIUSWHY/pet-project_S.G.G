@@ -12,7 +12,7 @@
         <v-avatar size="48">
           <img
             v-if="item.avatar !== ''"
-            src="https://cdn.vuetifyjs.com/images/john.jpg"
+            :src="`data:image/png;base64,${item.avatar.image}`"
             alt="avatar"
           />
           <v-icon size="48" v-else> mdi-account-circle </v-icon>
