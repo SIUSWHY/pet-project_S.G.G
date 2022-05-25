@@ -1,12 +1,17 @@
 import sendUser from '@/API/sendUser';
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { namespace } from 'vuex-class';
+const users = namespace('users');
 @Component({
   components: {},
 })
 export default class Dashboard extends Vue {
   @Prop({ type: Boolean, default: true }) private isDisable?: boolean | undefined;
   @Prop({ type: Boolean, default: false }) private isDialogOpen?: boolean;
+  @Prop({ type: Boolean, default: false }) private isLoading?: boolean;
   @Prop({ type: Boolean, default: true }) private isHide?: boolean;
+  @users.Action private loadData!: () => Promise<void>;
+
   isOpen: boolean | undefined;
   user: any;
 
@@ -35,6 +40,12 @@ export default class Dashboard extends Vue {
     return (this.isOpen = !this.isOpen);
   }
 
+  private async refreshData() {
+    this.isLoading = true;
+    await this.$store.dispatch('usersList/loadData');
+    this.isLoading = false;
+  }
+
   private async postUser() {
     const response = new FormData();
     response.append('username', this.user.username);
@@ -44,6 +55,5 @@ export default class Dashboard extends Vue {
     response.append('avatar', this.user.avatar);
     response.append('role', this.user.role);
     const data = await sendUser(response);
-    console.log(data);
   }
 }

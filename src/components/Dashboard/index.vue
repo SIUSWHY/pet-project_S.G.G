@@ -32,8 +32,8 @@
     </v-navigation-drawer>
 
     <v-app-bar dense app>
-      <v-btn icon>
-        <v-icon>mdi-refresh</v-icon>
+      <v-btn :loading="isLoading" @click="refreshData()" icon>
+        <v-icon> mdi-refresh</v-icon>
       </v-btn>
       <v-btn @click="openModal()" icon>
         <v-icon>mdi-plus</v-icon>

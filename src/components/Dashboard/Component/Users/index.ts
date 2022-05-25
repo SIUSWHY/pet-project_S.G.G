@@ -6,10 +6,12 @@ const users = namespace('users');
   components: {},
 })
 export default class Users extends Vue {
+  @Prop({ type: Number, default: 48 }) private Size!: number;
+
   @users.Action private loadData!: () => Promise<void>;
   data() {
     return {
-      selected: ['sadasd'],
+      selected: [],
       headers: [
         { text: '', value: 'avatar', sortable: false, width: '1px', height: '60px' },
         {
@@ -22,6 +24,10 @@ export default class Users extends Vue {
         { text: 'Role', value: 'role' },
       ],
     };
+  }
+
+  private resize() {
+    return;
   }
 
   async created() {

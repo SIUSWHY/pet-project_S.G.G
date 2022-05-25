@@ -34,7 +34,6 @@ CreateNewUser.post('/createNewUser', upload.single('avatar'), async (req, res) =
   //     errors,
   //   });
   // }
-  console.log(req.body, req.file);
 
   const User = await Users.create({ username, name, email, hashPassword, avatar });
   res.send(User);

@@ -9,7 +9,7 @@
       class="elevation-1"
     >
       <template v-slot:item.avatar="{ item }">
-        <v-avatar size="48">
+        <v-avatar @click="resize()" :size="Size">
           <img
             v-if="item.avatar !== ''"
             :src="`data:image/png;base64,${item.avatar.image}`"
