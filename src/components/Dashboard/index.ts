@@ -1,4 +1,5 @@
 import sendUser from '@/API/sendUser';
+import deleteUserById from '@/API/deleteUsers';
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
 const usersList = namespace('usersList');
@@ -9,7 +10,10 @@ export default class Dashboard extends Vue {
   @Prop({ type: Boolean, default: false }) private isLoading?: boolean;
   @Prop({ type: Boolean, default: true }) private isHide?: boolean;
   @usersList.Action private loadData!: () => Promise<void>;
+  @usersList.Action private pushUsersWithoutDeleted!: (usersId: any) => Promise<void>;
+  @usersList.Action private pushNewUser!: (user: any) => Promise<void>;
   @usersList.Getter private isDisableTools!: object;
+  @usersList.Getter private selectedUsersById!: any;
   @usersList.State private selected!: any;
 
   private items = [
@@ -44,6 +48,15 @@ export default class Dashboard extends Vue {
     await this.$store.dispatch('usersList/loadData');
     this.isLoading = false;
   }
+  private async deleteUsers() {
+    try {
+      const usersId: string[] = this.selectedUsersById;
+      await deleteUserById(usersId);
+      this.pushUsersWithoutDeleted(usersId);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   private async postUser() {
     const response = new FormData();
@@ -53,6 +66,11 @@ export default class Dashboard extends Vue {
     response.append('password', this.user.password);
     response.append('avatar', this.user.avatar);
     response.append('role', this.user.role);
-    const data = await sendUser(response);
+    try {
+      const user = await sendUser(response);
+      this.pushNewUser(user);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }

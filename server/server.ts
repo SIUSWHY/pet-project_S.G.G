@@ -9,6 +9,7 @@ import CreateNewUser from './controllers/registration';
 import LoginUser from './controllers/login';
 import getUsers from './routes/getUsers';
 import multer from 'multer';
+import DeleteUsers from './controllers/deleteUsers';
 
 async function run() {
   const app = express();
@@ -20,7 +21,15 @@ async function run() {
 
   await mongoose.connect('mongodb://localhost:27017/Project');
 
-  app.use([getItemCards, getCharacterList, getAllMenuItems, CreateNewUser, LoginUser, getUsers]);
+  app.use([
+    getItemCards,
+    getCharacterList,
+    getAllMenuItems,
+    CreateNewUser,
+    LoginUser,
+    getUsers,
+    DeleteUsers,
+  ]);
 
   app.listen(port, () =>
     console.log(`

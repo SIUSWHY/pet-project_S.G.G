@@ -11,4 +11,9 @@ export const getters: GetterTree<UsersList, RootState> = {
     }
     return { deleteTool: false, additTool: true };
   },
+  selectedUsersById(state) {
+    let selectedId: string[] = [];
+    state.selected.map(value => selectedId.push(value._id));
+    return selectedId;
+  },
 };

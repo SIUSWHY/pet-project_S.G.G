@@ -38,7 +38,7 @@
       <v-btn @click="openModal()" icon>
         <v-icon>mdi-plus</v-icon>
       </v-btn>
-      <v-btn :disabled="isDisableTools.deleteTool" icon>
+      <v-btn :disabled="isDisableTools.deleteTool" @click="deleteUsers()" icon>
         <v-icon>mdi-trash-can</v-icon>
       </v-btn>
       <v-btn :disabled="isDisableTools.additTool" icon>

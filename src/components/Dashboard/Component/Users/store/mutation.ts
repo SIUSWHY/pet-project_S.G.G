@@ -1,5 +1,5 @@
 import { MutationTree } from 'vuex';
-import { GET_USERS, SET_SELECTED } from './mutationTypes';
+import { GET_USERS, SET_NEW_USER, SET_SELECTED, SET_USERS_WITHOUT_DELETED } from './mutationTypes';
 import { UsersList, UserType } from './types';
 
 export const mutations: MutationTree<UsersList> = {
@@ -8,5 +8,11 @@ export const mutations: MutationTree<UsersList> = {
   },
   [SET_SELECTED](state, selected) {
     state.selected = selected;
+  },
+  [SET_USERS_WITHOUT_DELETED](state, usersId) {
+    state.users = state.users.filter(elem => elem._id !== usersId);
+  },
+  [SET_NEW_USER](state, user) {
+    state.users.push(user);
   },
 };
