@@ -15,17 +15,20 @@ const routes: Array<RouteConfig> = [
     path: '/dashboard',
     name: 'Dashboard',
     component: () => import('@/components/Dashboard/index.vue'),
-    children: [{
-      path: 'users',
-      component: () => import('@/components/Dashboard/Component/Users/index.vue'),
-    },
-    {
-      path: 'all',
-      // component: () => import('@/components/Dashboard/index.vue'),
-    }, {
-      path: 'dashboard',
-      // component: () => import('@/components/Dashboard/index.vue'),
-    },]
+    children: [
+      {
+        path: 'users',
+        component: () => import('@/components/Dashboard/Component/Users/index.vue'),
+      },
+      {
+        path: 'all',
+        // component: () => import('@/components/Dashboard/index.vue'),
+      },
+      {
+        path: 'dashboard',
+        component: () => import('@/components/Dashboard/Component/Dash/index.vue'),
+      },
+    ],
   },
   {
     path: '/bastion',
