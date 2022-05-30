@@ -8,10 +8,10 @@ export const actions: ActionTree<UsersList, RootState> = {
     const { data: users } = await getUsers();
     commit(GET_USERS, users);
   },
-  pushSelected({ commit, state }, selected: Array<any>) {
+  pushSelected({ commit }, selected: Array<any>) {
     commit(SET_SELECTED, selected);
   },
-  pushUsersWithoutDeleted({ commit, state }, usersId) {
+  pushUsersWithoutDeleted({ commit }, usersId) {
     commit(SET_USERS_WITHOUT_DELETED, usersId);
   },
   pushNewUser({ commit }, user) {
