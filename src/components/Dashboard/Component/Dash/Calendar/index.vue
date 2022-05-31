@@ -15,6 +15,55 @@
               {{ $refs.calendar.title }}
             </v-toolbar-title>
             <v-spacer></v-spacer>
+            <v-btn fab text small @click="openAddNewEventModal">
+              <v-icon> mdi-plus </v-icon>
+            </v-btn>
+            <v-dialog v-model="isAddNewEventModalOpen" max-width="500px">
+              <v-card>
+                <v-card-title>Add new event</v-card-title>
+                <v-card-text>
+                  <v-autocomplete :items="data.names" label="Event Name" />
+                  <v-autocomplete :items="data.colors" label="Color" />
+                  <v-menu
+                    ref="menu"
+                    v-model="menu"
+                    :close-on-content-click="false"
+                    :return-value.sync="date"
+                    transition="scale-transition"
+                    offset-y
+                    min-width="auto"
+                  >
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-text-field
+                        v-model="data.dates"
+                        label="Picker in menu"
+                        prepend-icon="mdi-calendar"
+                        readonly
+                        v-bind="attrs"
+                        v-on="on"
+                      ></v-text-field>
+                    </template>
+                    <v-date-picker v-model="data.dates" range no-title scrollable> </v-date-picker>
+                  </v-menu>
+                </v-card-text>
+
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+
+                  <v-btn
+                    text
+                    color="primary"
+                    @click="
+                      () => {
+                        openAddNewEventModal();
+                      }
+                    "
+                  >
+                    submit
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
             <v-menu bottom right>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn outlined color="grey darken-2" v-bind="attrs" v-on="on">
@@ -60,23 +109,22 @@
           >
             <v-card color="grey lighten-4" min-width="350px" flat>
               <v-toolbar :color="data.selectedEvent.color" dark>
-                <v-btn icon>
-                  <v-icon>mdi-pencil</v-icon>
-                </v-btn>
                 <v-toolbar-title v-html="data.selectedEvent.name"></v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-btn icon>
-                  <v-icon>mdi-heart</v-icon>
+                  <v-icon>mdi-pencil</v-icon>
                 </v-btn>
                 <v-btn icon>
-                  <v-icon>mdi-dots-vertical</v-icon>
+                  <v-icon>mdi-trash-can</v-icon>
                 </v-btn>
               </v-toolbar>
               <v-card-text>
                 <span v-html="data.selectedEvent.details"></span>
               </v-card-text>
               <v-card-actions>
-                <v-btn text color="secondary" @click="selectedOpen = false"> Cancel </v-btn>
+                <v-btn text color="secondary" @click="data.selectedOpen = !data.selectedOpen">
+                  Cancel
+                </v-btn>
               </v-card-actions>
             </v-card>
           </v-menu>

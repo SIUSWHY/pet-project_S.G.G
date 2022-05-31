@@ -12,19 +12,43 @@ export default class Calendar extends Vue {
       day: 'Day',
       '4day': '4 Days',
     },
+    dates: ['2022-05-20', '2022-05-21'],
     selectedEvent: {},
     selectedElement: null,
     selectedOpen: false,
-    events: [],
+    events: [
+      {
+        color: 'blue',
+        start: '2022-05-20 15:10',
+        end: '2022-05-21 16:20',
+        name: 'Meeting',
+        timed: 'true',
+      },
+      {
+        color: 'blue',
+        start: '2022-05-31 15:10',
+        end: '2022-06-1 16:20',
+        name: 'Meeting',
+        timed: 'true',
+      },
+    ],
     colors: ['blue', 'indigo', 'deep-purple', 'cyan', 'green', 'orange', 'grey darken-1'],
     names: ['Meeting', 'Holiday', 'PTO', 'Travel', 'Event', 'Birthday', 'Conference', 'Party'],
   };
+  private isAddNewEventModalOpen: boolean = false;
+  private openAddNewEventModal() {
+    this.isAddNewEventModalOpen = !this.isAddNewEventModalOpen;
+  }
+
   mounted() {
     this.$refs.calendar!.checkChange();
   }
   private viewDay({ date }: any) {
     this.data.focus = date;
     this.data.type = 'day';
+  }
+  private dateRangeText() {
+    return this.data.dates.join(' ~ ');
   }
   private getEventColor(event: { color: any }) {
     return event.color;
@@ -78,7 +102,8 @@ export default class Calendar extends Vue {
       });
     }
 
-    this.data.events = events;
+    // this.data.events = events;
+    // console.log(events);
   }
   private rnd(a: number, b: number) {
     return Math.floor((b - a + 1) * Math.random()) + a;
