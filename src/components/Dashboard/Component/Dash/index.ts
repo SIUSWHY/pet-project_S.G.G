@@ -1,6 +1,9 @@
 import { Component, Vue } from 'vue-property-decorator';
+import Calendar from './Calendar/index.vue';
 @Component({
-  components: {},
+  components: {
+    Calendar,
+  },
 })
 export default class Dashboard extends Vue {
   private sparklineData = {
@@ -15,6 +18,26 @@ export default class Dashboard extends Vue {
     type: 'trend',
     autoLineWidth: false,
   };
+  private items = [
+    {
+      color: 'red lighten-2',
+      icon: 'mdi-trash-can',
+      massege: 'deleted user',
+      name: 'Anna',
+    },
+    {
+      color: 'purple darken-1',
+      icon: 'mdi-pencil',
+      massege: 'eddit user',
+      name: 'Eva',
+    },
+    {
+      color: 'green darken-1',
+      icon: 'mdi-plus',
+      massege: 'created user',
+      name: 'Eva',
+    },
+  ];
   private count: Array<number> = [];
   private isLoading = false;
   private exhale = (ms: number | undefined) => new Promise(resolve => setTimeout(resolve, ms));

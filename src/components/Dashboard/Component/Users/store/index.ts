@@ -6,7 +6,7 @@ import { RootState, UsersList } from './types';
 
 export const state: UsersList = {
   users: [],
-  selected: [],
+  selectedUsers: [],
 };
 
 const namespaced: boolean = true;

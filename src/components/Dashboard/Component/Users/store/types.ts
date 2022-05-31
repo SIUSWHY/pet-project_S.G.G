@@ -9,7 +9,7 @@ export interface UserType {
 }
 export interface UsersList {
   users: UserType[];
-  selected: UserType[];
+  selectedUsers: UserType[];
 }
 
 export interface RootState {}

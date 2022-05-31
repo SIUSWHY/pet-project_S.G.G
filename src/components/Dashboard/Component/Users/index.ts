@@ -10,14 +10,14 @@ const usersList = namespace('usersList');
 })
 export default class Users extends Vue {
   @usersList.Action private loadData!: () => Promise<void>;
-  @usersList.Action private pushSelected!: (selected: any) => void;
-  @usersList.Action private pushUsersWithoutDeleted!: (usersId: any) => Promise<void>;
+  @usersList.Action private pushSelected!: (selected: UserType[]) => void;
+  @usersList.Action private pushUsersWithoutDeleted!: (usersId: Array<string>) => Promise<void>;
   @usersList.Action private pushNewUser!: (user: any) => Promise<void>;
   @usersList.Getter private isDisableTools!: object;
   @usersList.Getter private selectedUsersById!: any;
-  @usersList.State private selected!: any;
+  @usersList.State private selectedUsers!: any;
 
-  private selected: any = [];
+  private selected: UserType[] = [];
   private headers: Array<Object> = [
     { text: '', value: 'avatar', sortable: false, width: '1px', height: '60px' },
     {
@@ -30,15 +30,15 @@ export default class Users extends Vue {
     { text: 'Role', value: 'role' },
   ];
   private isLoading = false;
-  private isHide = true;
+  private isHide = false;
   private Size = 48;
   private countItemsOnPage = 13;
 
   private resize() {
-    // if (this.Size === 48) {
-    //   return (this.Size = 100);
-    // }
-    // return (this.Size = 48);
+    if (this.Size === 48) {
+      return (this.Size = 100);
+    }
+    return (this.Size = 48);
   }
 
   async created() {
@@ -62,6 +62,7 @@ export default class Users extends Vue {
   };
   private roles = ['User', 'Moderator', 'Admin'];
   private isCreateNewUserDialogOpen: boolean = false;
+  private isUpdateUserDialogOpen: boolean = false;
   private isDisable = true;
 
   @Watch('selected')
@@ -69,8 +70,21 @@ export default class Users extends Vue {
     this.isDisableTools;
   }
 
-  private openModal() {
+  private openAddNewUserModal() {
     this.isCreateNewUserDialogOpen = !this.isCreateNewUserDialogOpen;
+  }
+
+  private openUpdateUserModal() {
+    this.isUpdateUserDialogOpen = !this.isUpdateUserDialogOpen;
+    const { name, username, email, role } = this.selected[0];
+    return (this.user = {
+      username: username,
+      name: name,
+      email: email,
+      password: 'password',
+      role: role,
+      avatar: '',
+    });
   }
 
   private async refreshData() {

@@ -1,14 +1,6 @@
 <template>
   <v-app>
     <v-navigation-drawer app>
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="text-h6"> Dashboard </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-divider></v-divider>
-
       <v-list dense nav>
         <v-list-item v-for="item in items" :key="item.title" link :to="item.link">
           <v-list-item-icon>
