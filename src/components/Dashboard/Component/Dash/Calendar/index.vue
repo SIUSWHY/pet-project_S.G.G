@@ -45,7 +45,7 @@
                     </template>
                     <v-date-picker v-model="event.dates" range no-title scrollable> </v-date-picker>
                   </v-menu>
-                  <v-menu
+                  <!-- <v-menu
                     ref="menu"
                     v-model="menu2"
                     :close-on-content-click="false"
@@ -72,7 +72,7 @@
                       full-width
                       @click:minute="$refs.menu.save(time)"
                     ></v-time-picker>
-                  </v-menu>
+                  </v-menu> -->
                 </v-card-text>
 
                 <v-card-actions>
@@ -134,10 +134,11 @@
             :close-on-content-click="false"
             :activator="data.selectedElement"
             offset-x
+            max-width="350"
           >
             <v-card color="grey lighten-4" min-width="350px" flat>
               <v-toolbar :color="data.selectedEvent.color" dark>
-                <v-toolbar-title v-html="data.selectedEvent.name"></v-toolbar-title>
+                <v-toolbar-title>{{ data.selectedEvent.name }}</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-btn icon>
                   <v-icon>mdi-pencil</v-icon>
@@ -147,7 +148,7 @@
                 </v-btn>
               </v-toolbar>
               <v-card-text>
-                <span v-html="data.selectedEvent.details"></span>
+                <span>{{ data.selectedEvent.details }}</span>
               </v-card-text>
               <v-card-actions>
                 <v-btn text color="secondary" @click="data.selectedOpen = !data.selectedOpen">

@@ -1,3 +1,4 @@
+import sendEvent from '@/API/sendEvent';
 import { Component, Vue } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
 const dashboard = namespace('dashboard');
@@ -6,6 +7,9 @@ const dashboard = namespace('dashboard');
 })
 export default class Calendar extends Vue {
   @dashboard.State private calendarEvents!: any;
+  @dashboard.Action private pushNewEvent!: (eventData: any) => Promise<void>;
+  @dashboard.Action private loadEvents!: () => Promise<void>;
+
   private data = {
     focus: '',
     type: 'month',
@@ -31,8 +35,21 @@ export default class Calendar extends Vue {
     name: '',
     timed: 'true',
   };
-  private addEvent() {
+  private async addEvent() {
     this.setDate();
+    const eventData = {
+      color: this.event.color,
+      name: this.event.name,
+      timed: this.event.timed,
+      start: this.event.start,
+      end: this.event.end,
+    };
+    try {
+      const { data: event } = await sendEvent(eventData);
+      this.pushNewEvent(event);
+    } catch (error) {
+      console.error(error);
+    }
   }
   private setDate() {
     const { dates } = this.event;
@@ -53,7 +70,8 @@ export default class Calendar extends Vue {
     this.$refs.calendar!.checkChange();
   }
 
-  created() {
+  async created() {
+    await this.$store.dispatch('dashboard/loadEvents');
     this.data.events = this.calendarEvents;
   }
   private viewDay({ date }: any) {

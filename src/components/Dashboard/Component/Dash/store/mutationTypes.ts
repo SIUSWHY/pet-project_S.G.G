@@ -1,4 +1,2 @@
-export const SET_SELECTED = 'SET_SELECTED';
-export const GET_USERS = 'GET_USERS';
-export const SET_USERS_WITHOUT_DELETED = 'SET_USERS_WITHOUT_DELETED';
-export const SET_NEW_USER = 'SET_NEW_USER';
+export const SET_NEW_EVENT = 'SET_NEW_EVENT';
+export const GET_EVENTS = 'GET_EVENTS';

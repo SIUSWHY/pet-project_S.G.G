@@ -8,8 +8,9 @@ import getAllMenuItems from './routes/getAllMenuItems';
 import CreateNewUser from './controllers/registration';
 import LoginUser from './controllers/login';
 import getUsers from './routes/getUsers';
-import multer from 'multer';
 import DeleteUsers from './controllers/deleteUsers';
+import CreateNewCalendarEvent from './controllers/sendCalendarEvent';
+import getCalendareEvents from './routes/getCalendareEvents';
 
 async function run() {
   const app = express();
@@ -29,6 +30,8 @@ async function run() {
     LoginUser,
     getUsers,
     DeleteUsers,
+    CreateNewCalendarEvent,
+    getCalendareEvents,
   ]);
 
   app.listen(port, () =>

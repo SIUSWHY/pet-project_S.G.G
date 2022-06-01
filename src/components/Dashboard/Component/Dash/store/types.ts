@@ -1,4 +1,5 @@
 export interface EventType {
+  _id?: string;
   color: string;
   start: string;
   end: string;
