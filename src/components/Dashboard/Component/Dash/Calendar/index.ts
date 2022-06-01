@@ -19,7 +19,7 @@ export default class Calendar extends Vue {
       day: 'Day',
       '4day': '4 Days',
     },
-    dates: [],
+    // dates: [],
     selectedEvent: {},
     selectedElement: null,
     selectedOpen: false,
@@ -32,6 +32,7 @@ export default class Calendar extends Vue {
     dates: [],
     end: '',
     start: '',
+    details: '',
     name: '',
     timed: 'true',
   };
@@ -43,6 +44,7 @@ export default class Calendar extends Vue {
       timed: this.event.timed,
       start: this.event.start,
       end: this.event.end,
+      details: this.event.details,
     };
     try {
       const { data: event } = await sendEvent(eventData);

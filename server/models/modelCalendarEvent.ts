@@ -7,6 +7,7 @@ const NewEventShema = new Schema<EventType>({
   end: String,
   name: String,
   start: String,
+  details: String,
   timed: String,
 });
 

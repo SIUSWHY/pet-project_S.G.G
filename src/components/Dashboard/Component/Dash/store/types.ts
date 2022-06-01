@@ -5,6 +5,7 @@ export interface EventType {
   end: string;
   name: string;
   timed: string;
+  details: string;
 }
 export interface DasboardList {
   calendarEvents: EventType[];

@@ -24,6 +24,8 @@
                 <v-card-text>
                   <v-autocomplete v-model="event.name" :items="data.names" label="Event Name" />
                   <v-autocomplete v-model="event.color" :items="data.colors" label="Color" />
+                  <v-text-field v-model="event.details" label="Datails"></v-text-field>
+
                   <v-menu
                     ref="menu"
                     v-model="menu"
@@ -148,7 +150,7 @@
                 </v-btn>
               </v-toolbar>
               <v-card-text>
-                <span>{{ data.selectedEvent.details }}</span>
+                <span class="custom-details-text-color">{{ data.selectedEvent.details }}</span>
               </v-card-text>
               <v-card-actions>
                 <v-btn text color="secondary" @click="data.selectedOpen = !data.selectedOpen">
