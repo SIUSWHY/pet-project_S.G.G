@@ -22,8 +22,8 @@
               <v-card>
                 <v-card-title>Add new event</v-card-title>
                 <v-card-text>
-                  <v-autocomplete :items="data.names" label="Event Name" />
-                  <v-autocomplete :items="data.colors" label="Color" />
+                  <v-autocomplete v-model="event.name" :items="data.names" label="Event Name" />
+                  <v-autocomplete v-model="event.color" :items="data.colors" label="Color" />
                   <v-menu
                     ref="menu"
                     v-model="menu"
@@ -35,15 +35,43 @@
                   >
                     <template v-slot:activator="{ on, attrs }">
                       <v-text-field
-                        v-model="data.dates"
-                        label="Picker in menu"
+                        v-model="event.dates"
+                        label="Date picker"
                         prepend-icon="mdi-calendar"
                         readonly
                         v-bind="attrs"
                         v-on="on"
                       ></v-text-field>
                     </template>
-                    <v-date-picker v-model="data.dates" range no-title scrollable> </v-date-picker>
+                    <v-date-picker v-model="event.dates" range no-title scrollable> </v-date-picker>
+                  </v-menu>
+                  <v-menu
+                    ref="menu"
+                    v-model="menu2"
+                    :close-on-content-click="false"
+                    :nudge-right="40"
+                    :return-value.sync="time"
+                    transition="scale-transition"
+                    offset-y
+                    max-width="290px"
+                    min-width="290px"
+                  >
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-text-field
+                        v-model="time"
+                        label="Time picker"
+                        prepend-icon="mdi-clock-time-four-outline"
+                        readonly
+                        v-bind="attrs"
+                        v-on="on"
+                      ></v-text-field>
+                    </template>
+                    <v-time-picker
+                      v-if="menu2"
+                      v-model="time"
+                      full-width
+                      @click:minute="$refs.menu.save(time)"
+                    ></v-time-picker>
                   </v-menu>
                 </v-card-text>
 
@@ -56,6 +84,7 @@
                     @click="
                       () => {
                         openAddNewEventModal();
+                        addEvent();
                       }
                     "
                   >
@@ -99,7 +128,6 @@
             @click:event="showEvent"
             @click:more="viewDay"
             @click:date="viewDay"
-            @change="updateRange"
           ></v-calendar>
           <v-menu
             v-model="data.selectedOpen"
