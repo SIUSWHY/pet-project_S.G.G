@@ -1,3 +1,4 @@
+import deleteEvent from '@/API/deleteEvent';
 import sendEvent from '@/API/sendEvent';
 import { Component, Vue } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
@@ -19,8 +20,9 @@ export default class Calendar extends Vue {
       day: 'Day',
       '4day': '4 Days',
     },
-    // dates: [],
+    dates: '',
     selectedEvent: {},
+    weekday: [1, 2, 3, 4, 5, 6, 0],
     selectedElement: null,
     selectedOpen: false,
     events: [],
@@ -30,6 +32,8 @@ export default class Calendar extends Vue {
   private event = {
     color: '',
     dates: [],
+    timeStart: '',
+    timeEnd: '',
     end: '',
     start: '',
     details: '',
@@ -52,6 +56,7 @@ export default class Calendar extends Vue {
     } catch (error) {
       console.error(error);
     }
+    console.log(this.event);
   }
   private setDate() {
     const { dates } = this.event;
@@ -62,14 +67,14 @@ export default class Calendar extends Vue {
       this.event.start = dates[0];
       this.event.end = dates[1];
     }
+    if (this.event.timeStart && this.event.timeEnd !== '') {
+      this.event.start = this.event.start + ' ' + this.event.timeStart;
+      this.event.end = this.event.end + ' ' + this.event.timeEnd;
+    }
   }
   private isAddNewEventModalOpen: boolean = false;
   private openAddNewEventModal() {
     this.isAddNewEventModalOpen = !this.isAddNewEventModalOpen;
-  }
-
-  mounted() {
-    this.$refs.calendar!.checkChange();
   }
 
   async created() {
@@ -80,9 +85,6 @@ export default class Calendar extends Vue {
     this.data.focus = date;
     this.data.type = 'day';
   }
-  private dateRangeText() {
-    return this.data.dates.join(' ~ ');
-  }
   private getEventColor(event: { color: any }) {
     return event.color;
   }
@@ -90,10 +92,15 @@ export default class Calendar extends Vue {
     this.data.focus = '';
   }
   private prev() {
-    this.$refs.calendar?.prev();
+    (this.$refs.calendar as any)?.prev();
   }
   private next() {
-    this.$refs.calendar?.next();
+    (this.$refs.calendar as any)?.next();
+  }
+  private async deleteEvent() {
+    const id = this.data.selectedElement?._id;
+    await deleteEvent(id);
+    console.log(id);
   }
   private showEvent({ nativeEvent, event }: any) {
     const open = () => {
