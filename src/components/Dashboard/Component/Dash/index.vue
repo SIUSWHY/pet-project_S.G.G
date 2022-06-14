@@ -42,6 +42,9 @@
               :icon="item.icon"
               fill-dot
             >
+              <template v-slot:opposite>
+                <span>2022-06-02</span>
+              </template>
               <v-card :color="item.color" dark>
                 <v-card-title class="text-h6 custom-width">
                   <v-avatar class="pr-2">

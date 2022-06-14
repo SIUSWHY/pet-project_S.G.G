@@ -10,8 +10,8 @@ export const mutations: MutationTree<UsersList> = {
     state.selectedUsers = selected;
   },
   [SET_USERS_WITHOUT_DELETED](state, usersId: Array<string>) {
-    const filgtered = state.users.filter(user => !usersId.includes(user._id));
-    state.users = filgtered;
+    const filtered = state.users.filter(user => !usersId.includes(user._id));
+    state.users = filtered;
     state.selectedUsers = [];
   },
   [SET_NEW_USER](state, user) {

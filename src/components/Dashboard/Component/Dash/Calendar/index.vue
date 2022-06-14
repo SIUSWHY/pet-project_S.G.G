@@ -157,7 +157,7 @@
             v-model="data.focus"
             color="primary"
             :weekdays="data.weekday"
-            :events="data.events"
+            :events="$store.state.dashboard.calendarEvents"
             :event-color="getEventColor"
             :type="data.type"
             @click:event="showEvent"

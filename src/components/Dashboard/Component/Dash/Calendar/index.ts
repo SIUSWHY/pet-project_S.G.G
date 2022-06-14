@@ -9,6 +9,7 @@ const dashboard = namespace('dashboard');
 export default class Calendar extends Vue {
   @dashboard.State private calendarEvents!: any;
   @dashboard.Action private pushNewEvent!: (eventData: any) => Promise<void>;
+  @dashboard.Action private pushEventsWithoutDeleted!: (id: number) => Promise<void>;
   @dashboard.Action private loadEvents!: () => Promise<void>;
 
   private data = {
@@ -56,12 +57,15 @@ export default class Calendar extends Vue {
     } catch (error) {
       console.error(error);
     }
-    console.log(this.event);
   }
   private setDate() {
     const { dates } = this.event;
     if (dates[0] > dates[1]) {
       this.event.start = dates[1];
+      this.event.end = dates[0];
+    }
+    if (dates.length === 1) {
+      this.event.start = dates[0];
       this.event.end = dates[0];
     } else {
       this.event.start = dates[0];
@@ -79,7 +83,6 @@ export default class Calendar extends Vue {
 
   async created() {
     await this.$store.dispatch('dashboard/loadEvents');
-    this.data.events = this.calendarEvents;
   }
   private viewDay({ date }: any) {
     this.data.focus = date;
@@ -98,8 +101,9 @@ export default class Calendar extends Vue {
     (this.$refs.calendar as any)?.next();
   }
   private async deleteEvent() {
-    const id = this.data.selectedElement?._id;
+    const id = this.data.selectedEvent!._id;
     await deleteEvent(id);
+    this.pushEventsWithoutDeleted(id);
     console.log(id);
   }
   private showEvent({ nativeEvent, event }: any) {
