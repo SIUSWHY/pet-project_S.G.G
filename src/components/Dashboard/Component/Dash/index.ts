@@ -11,7 +11,7 @@ export default class Dashboard extends Vue {
     radius: 10,
     padding: 8,
     lineCap: 'round',
-    labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'],
+    labels: ['10', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'],
     gradientDirection: 'top',
     gradient: ['red', 'orange', 'yellow'],
     fill: false,

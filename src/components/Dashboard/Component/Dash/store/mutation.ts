@@ -6,7 +6,7 @@ export const mutations: MutationTree<DasboardList> = {
   [SET_EVENTS_WITHOUT_DELETED](state, id: any) {
     const filtered = state.calendarEvents.filter(event => !id.includes(event._id));
     state.calendarEvents = filtered;
-    console.log(filtered, id);
+    // console.log(filtered, id);
   },
   [GET_EVENTS](state, events: EventType[]) {
     state.calendarEvents = events;

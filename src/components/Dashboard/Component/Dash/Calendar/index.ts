@@ -22,6 +22,7 @@ export default class Calendar extends Vue {
       '4day': '4 Days',
     },
     dates: '',
+    allowedDates: '2022-07-15',
     selectedEvent: {},
     weekday: [1, 2, 3, 4, 5, 6, 0],
     selectedElement: null,
@@ -67,7 +68,8 @@ export default class Calendar extends Vue {
     if (dates.length === 1) {
       this.event.start = dates[0];
       this.event.end = dates[0];
-    } else {
+    }
+    if (dates[0] < dates[1]) {
       this.event.start = dates[0];
       this.event.end = dates[1];
     }
@@ -104,7 +106,7 @@ export default class Calendar extends Vue {
     const id = this.data.selectedEvent!._id;
     await deleteEvent(id);
     this.pushEventsWithoutDeleted(id);
-    console.log(id);
+    // console.log(id);
   }
   private showEvent({ nativeEvent, event }: any) {
     const open = () => {
