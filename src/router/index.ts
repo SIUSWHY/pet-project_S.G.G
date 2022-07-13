@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import Home from '@/views/index.vue';
-import Hades from '@/components/Pages/Hades/index.vue';
 
 Vue.use(VueRouter);
 
+const isAdmin = true;
 const routes: Array<RouteConfig> = [
   {
     path: '/',
@@ -20,6 +20,13 @@ const routes: Array<RouteConfig> = [
     path: '/dashboard',
     name: 'Dashboard',
     component: () => import('@/components/Dashboard/index.vue'),
+    beforeEnter: (to, from, next) => {
+      if (isAdmin) {
+        next();
+      } else {
+        next('/');
+      }
+    },
     children: [
       {
         path: 'users',

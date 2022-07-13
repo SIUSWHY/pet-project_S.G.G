@@ -1,7 +1,8 @@
-import axios, { AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
+import { axiosInstance } from '../../server/API';
 
 const sendUser = (response: any): Promise<AxiosResponse<string[]>> =>
-  axios.post('http://127.0.0.1:3000/createNewUser', response, {
+  axiosInstance.post('/createNewUser', response, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },

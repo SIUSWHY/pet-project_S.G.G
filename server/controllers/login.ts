@@ -7,7 +7,7 @@ const LoginUser = express.Router();
 LoginUser.post('/loginUser', async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ $and: [{ email }, { password }] });
-  const isPasswordValid: boolean = bcrypt.compareSync(password, user!.hashPassword);
+  const isPasswordValid: Promise<boolean> = bcrypt.compare(password, user!.hashPassword);
 
   if (!isPasswordValid) {
     throw new Error('Invalid password');
@@ -18,7 +18,9 @@ LoginUser.post('/loginUser', async (req, res) => {
       email: user.email,
       username: user.username,
       name: user.name,
+      role: user.role,
     });
+
     return res.status(200).send({ massege: 'You login. Welcome', token });
   } else {
     return res.status(404).send(`Incorrect Data`);

@@ -21,7 +21,7 @@
           color="primary"
           @click="
             () => {
-              openUpdateUserModal();
+              loginUser();
             }
           "
         >

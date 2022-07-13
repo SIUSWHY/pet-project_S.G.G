@@ -1,5 +1,6 @@
-import axios, { AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
+import { axiosInstance } from '../../server/API';
 
-const getUsers = (): Promise<AxiosResponse<string[]>> => axios.get('http://127.0.0.1:3000/users');
+const getUsers = (): Promise<AxiosResponse<string[]>> => axiosInstance.get('/users');
 
 export default getUsers;

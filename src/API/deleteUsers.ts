@@ -1,6 +1,7 @@
-import axios, { AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
+import { axiosInstance } from '../../server/API';
 
 const deleteUserById = (usersId: string[]): Promise<AxiosResponse<any>> =>
-  axios.delete('http://127.0.0.1:3000/deleteUsers', { data: { _id: usersId } });
+  axiosInstance.delete('/deleteUsers', { data: { _id: usersId } });
 
 export default deleteUserById;

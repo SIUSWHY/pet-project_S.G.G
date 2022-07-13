@@ -1,6 +1,7 @@
-import axios, { AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
+import { axiosInstance } from '../../server/API';
 
 const sendEvent = (eventData: any): Promise<AxiosResponse<string[]>> =>
-  axios.post('http://127.0.0.1:3000/createNewEvent', eventData);
+  axiosInstance.post('/createNewEvent', eventData);
 
 export default sendEvent;
