@@ -1,10 +1,11 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import Home from '@/views/index.vue';
+import { checkPermissions } from '@/helpers/checkPermissions';
 
 Vue.use(VueRouter);
 
-const isAdmin = true;
+const isAdmin = checkPermissions();
 const routes: Array<RouteConfig> = [
   {
     path: '/',

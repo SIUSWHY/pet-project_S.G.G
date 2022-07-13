@@ -5,7 +5,7 @@ import store from './store';
 import VueI18n from 'vue-i18n';
 import Vue2Editor from 'vue2-editor';
 import locales from './locales/en.json';
-import vuetify from '@/plugins/vuetify'
+import vuetify from '@/plugins/vuetify';
 
 Vue.use(VueI18n, Vue2Editor);
 

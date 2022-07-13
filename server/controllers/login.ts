@@ -12,7 +12,6 @@ LoginUser.post('/loginUser', async (req, res) => {
   if (!isPasswordValid) {
     throw new Error('Invalid password');
   }
-
   if (user !== null) {
     const token: string = createToken({
       email: user.email,
