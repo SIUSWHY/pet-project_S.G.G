@@ -19,7 +19,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 CreateNewUser.post('/createNewUser', upload.single('avatar'), async (req, res) => {
-  const { password, username, name, email } = req.body;
+  const { password, username, name, email, date } = req.body;
+  console.log(req.body);
+
   const hashPassword: string = await cryptPassword(password);
   const img = fs.readFileSync(req.file!.path);
   const encode_img = img.toString('base64');
@@ -35,7 +37,7 @@ CreateNewUser.post('/createNewUser', upload.single('avatar'), async (req, res) =
   //   });
   // }
 
-  const User = await Users.create({ username, name, email, hashPassword, avatar });
+  const User = await Users.create({ username, name, email, hashPassword, avatar, date });
   res.send(User);
 });
 

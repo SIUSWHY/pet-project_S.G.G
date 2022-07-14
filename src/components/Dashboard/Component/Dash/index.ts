@@ -1,11 +1,16 @@
 import { Component, Vue } from 'vue-property-decorator';
 import Calendar from './Calendar/index.vue';
+import { namespace } from 'vuex-class';
+const usersList = namespace('usersList');
+
 @Component({
   components: {
     Calendar,
   },
 })
 export default class Dashboard extends Vue {
+  @usersList.State private users!: any;
+
   private sparklineData = {
     width: 1,
     radius: 10,
@@ -41,6 +46,8 @@ export default class Dashboard extends Vue {
   private count: Array<number> = [];
   private isLoading = false;
   private exhale = (ms: number | undefined) => new Promise(resolve => setTimeout(resolve, ms));
+  // private lables: [] = this.users.date;
+  mounted() {}
 
   private countData() {
     return Math.ceil(Math.random() * (120 - 80) + 80);

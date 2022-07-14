@@ -35,7 +35,7 @@ const routes: Array<RouteConfig> = [
       },
       {
         path: 'all',
-        // component: () => import('@/components/Dashboard/index.vue'),
+        component: () => import('@/components/Dashboard/Component/Profile/index.vue'),
       },
       {
         path: 'dashboard',

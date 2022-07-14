@@ -9,7 +9,7 @@ const NewUserShema = new Schema<UserType>({
   email: String,
   role: { type: String, default: 'User' },
   avatar: {},
-  registerDate: Date,
+  date: String,
 });
 
 export default model<UserType>('Users', NewUserShema);

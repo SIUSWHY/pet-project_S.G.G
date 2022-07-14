@@ -6,8 +6,8 @@ import Cookies from 'js-cookie';
 })
 export default class Login extends Vue {
   private user = {
-    email: 'admin@gmail.com',
-    password: 'admin',
+    email: 'Admin@gmail.com',
+    password: 'password',
   };
   private isHide = false;
 

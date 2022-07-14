@@ -27,6 +27,7 @@ export default class Users extends Vue {
     },
     { text: 'Name', value: 'name' },
     { text: 'Email', value: 'email' },
+    { text: 'Register Date', value: 'date' },
     { text: 'Role', value: 'role' },
   ];
   private isLoading = false;
@@ -104,12 +105,14 @@ export default class Users extends Vue {
 
   private async postUser() {
     const response = new FormData();
+    const date = new Date();
     response.append('username', this.user.username);
     response.append('name', this.user.name);
     response.append('email', this.user.email);
     response.append('password', this.user.password);
     response.append('avatar', this.user.avatar);
     response.append('role', this.user.role);
+    response.append('date', date.toISOString());
     try {
       const user = await sendUser(response);
       this.pushNewUser(user);

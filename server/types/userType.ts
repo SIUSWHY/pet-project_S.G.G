@@ -5,6 +5,6 @@ export interface UserType {
   email: string;
   role: string;
   avatar: { name: string; desc: string; img: { data: Buffer; contentType: String } };
-  registerDate: Date;
+  date: string;
   hashPassword: string;
 }
