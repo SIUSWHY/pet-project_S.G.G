@@ -11,8 +11,11 @@
           <v-col class="py-0">
             <v-list-item color="rgba(0, 0, 0, .4)" dark>
               <v-list-item-content>
-                <v-list-item-title class="text-h6"> Marcus Obrien </v-list-item-title>
-                <v-list-item-subtitle>Network Engineer</v-list-item-subtitle>
+                <v-list-item-title class="text-h6"> Name: {{ this.user.name }} </v-list-item-title>
+                <v-list-item-title class="text-h6">
+                  Email: {{ this.user.email }}
+                </v-list-item-title>
+                <v-list-item-title class="text-h6"> Role: {{ this.user.role }} </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-col>

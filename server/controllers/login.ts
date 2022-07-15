@@ -18,6 +18,7 @@ LoginUser.post('/loginUser', async (req, res) => {
       username: user.username,
       name: user.name,
       role: user.role,
+      id: user._id,
     });
 
     return res.status(200).send({ massege: 'You login. Welcome', token });

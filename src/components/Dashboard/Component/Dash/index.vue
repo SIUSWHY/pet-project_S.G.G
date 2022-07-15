@@ -20,7 +20,6 @@
 
           <v-card-text class="pt-0">
             <div class="text-h6 font-weight-light mb-2">User Registrations</div>
-            <div class="subheading font-weight-light grey--text">Last Campaign Performance</div>
             <v-divider class="my-2"></v-divider>
             <v-btn :loading="isLoading" @click="setData" icon>
               <v-icon> mdi-refresh</v-icon>

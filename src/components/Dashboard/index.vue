@@ -14,7 +14,16 @@
       </v-list>
       <template v-slot:append>
         <div class="pa-2">
-          <v-btn block> Logout </v-btn>
+          <v-btn
+            block
+            @click="
+              () => {
+                logoutUser();
+              }
+            "
+          >
+            Logout
+          </v-btn>
         </div>
       </template>
     </v-navigation-drawer>

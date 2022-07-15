@@ -1,6 +1,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import loginUser from '@/API/loginUser';
 import Cookies from 'js-cookie';
+import router from '@/router';
 @Component({
   components: {},
 })
@@ -9,13 +10,18 @@ export default class Login extends Vue {
     email: 'Admin@gmail.com',
     password: 'password',
   };
-  private isHide = false;
+  private isHide = true;
 
   private async loginUser() {
-    const {
-      data: { token },
-    } = await loginUser(this.user);
+    try {
+      const {
+        data: { token },
+      } = await loginUser(this.user);
 
-    Cookies.set('Token', token);
+      Cookies.set('Token', token);
+      router.push({ path: '/dashboard/users' });
+    } catch {
+      alert('Incorrect data');
+    }
   }
 }

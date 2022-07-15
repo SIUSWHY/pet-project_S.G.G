@@ -1,7 +1,7 @@
-import sendUser from '@/API/sendUser';
-import deleteUserById from '@/API/deleteUsers';
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
+import Cookies from 'js-cookie';
 import { namespace } from 'vuex-class';
+import router from '@/router';
 const usersList = namespace('usersList');
 @Component({
   components: {},
@@ -21,4 +21,9 @@ export default class Dashboard extends Vue {
     { title: 'Users', icon: 'mdi-account-group-outline', link: '/dashboard/users' },
     { title: 'My Account', icon: 'mdi-account', link: '/dashboard/all' },
   ];
+
+  private logoutUser() {
+    Cookies.remove('Token');
+    router.push({ path: '/login' });
+  }
 }

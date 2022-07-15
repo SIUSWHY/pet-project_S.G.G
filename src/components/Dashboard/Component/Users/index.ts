@@ -1,5 +1,7 @@
 import deleteUserById from '@/API/deleteUsers';
 import sendUser from '@/API/sendUser';
+import sendLog from '@/API/sendLog';
+import { decodeToken } from '@/helpers/decodeToken';
 import store from '@/store';
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
@@ -106,6 +108,14 @@ export default class Users extends Vue {
   private async postUser() {
     const response = new FormData();
     const date = new Date();
+    const adminData = decodeToken();
+    const logData = {
+      color: 'green darken-1',
+      name: adminData!.name,
+      adminId: adminData!.id,
+      date: date.toISOString(),
+      message: 'created user ' + this.user.name,
+    };
     response.append('username', this.user.username);
     response.append('name', this.user.name);
     response.append('email', this.user.email);
@@ -115,6 +125,7 @@ export default class Users extends Vue {
     response.append('date', date.toISOString());
     try {
       const user = await sendUser(response);
+      sendLog(logData);
       this.pushNewUser(user);
     } catch (error) {
       console.error(error);
