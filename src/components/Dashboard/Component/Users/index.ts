@@ -96,9 +96,19 @@ export default class Users extends Vue {
     this.isLoading = false;
   }
   private async deleteUsers() {
+    const date = new Date();
+    const adminData = decodeToken();
     try {
       const usersId: string[] = this.selectedUsersById;
+      const logData = {
+        color: 'green darken-1',
+        name: adminData!.name,
+        adminId: adminData!.id,
+        date: date.toISOString(),
+        message: 'delete user ' + this.selectedUsersById,
+      };
       await deleteUserById(usersId);
+      sendLog(logData);
       this.pushUsersWithoutDeleted(usersId);
     } catch (error) {
       console.error(error);

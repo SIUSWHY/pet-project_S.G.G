@@ -13,6 +13,7 @@ import CreateNewCalendarEvent from './controllers/sendCalendarEvent';
 import getCalendareEvents from './routes/getCalendareEvents';
 import DeleteEvent from './controllers/deleteEvent';
 import CreateLogs from './controllers/createLogs';
+import getLogs from './routes/getLogs';
 
 async function run() {
   const app = express();
@@ -36,6 +37,7 @@ async function run() {
     getCalendareEvents,
     DeleteEvent,
     CreateLogs,
+    getLogs,
   ]);
 
   app.listen(port, () =>

@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import { usersList } from '@/components/Dashboard/Component/Users/store/index';
 import { dashboard } from '@/components/Dashboard/Component/Dash/store/index';
+import { profiledata } from '@/components/Dashboard/Component/Profile/store/index';
 
 Vue.use(Vuex);
 
@@ -12,5 +13,6 @@ export default new Vuex.Store({
   modules: {
     usersList,
     dashboard,
+    profiledata,
   },
 });

@@ -22,6 +22,13 @@
         </v-row>
       </v-img>
     </v-card>
+    <v-spacer></v-spacer>
+    <v-data-table
+      :headers="headers"
+      :items="$store.state.profiledata.logs"
+      hide-default-footer
+      class="elevation-1"
+    ></v-data-table>
   </v-app>
 </template>
 
